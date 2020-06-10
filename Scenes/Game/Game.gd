@@ -2,14 +2,14 @@ extends Spatial
 
 
 const DEFAULT_RAY_LENGTH = 1024
-const VECTOR_3_Y_MASK = Vector3(1.0, 0.0, 1.0)
+const VECTOR_3_MASK = Vector3(1.0, 0.0, 1.0)
+const VECTOR_3_OFFSET = Vector3(0.0, 2.0, 0.0)
 
 onready var camera_node = $Camera
 onready var table_node = $Table
 
-export var card_drag_height: float = 2.0
-
 var dragging : Card
+var hovering: Spatial
 
 func _physics_process(_delta):
 	pass
@@ -24,16 +24,7 @@ func _ready():
 		if child is Card:
 			child.connect("drag", self, "_on_Card_drag")
 			child.connect("drop", self, "_on_Card_drop")
-
-
-
-func _on_Card_focus(card:Card):
-	pass # Replace with function body.
-
-
-func _on_Card_mouse_over(camera, event, click_position, click_normal, shape_idx):
-	pass # Replace with function body.
-
+			child.connect("mouse_over", self, "_on_Card_mouse_over")
 
 func _on_Card_drag(card:Card):
 	if is_instance_valid(card):
@@ -41,12 +32,22 @@ func _on_Card_drag(card:Card):
 
 func _on_Card_drop(card:Card):
 	if is_instance_valid(dragging):
-		dragging.translation.y = table_node.translation.y
+		if hovering is Table:
+			dragging.translation.y = hovering.translation.y
+		if hovering is Card:
+			dragging.translation.y = hovering.translation.y + 0.04
 		dragging = null
 
 func _on_Table_mouse_over(table:Table, camera, event, click_position, click_normal, shape_idx):
+	_hover_over(table, click_position)
+
+func _on_Card_mouse_over(card:Card, camera, event, click_position, click_normal, shape_idx):
+	_hover_over(card)
+
+func _hover_over(spatial:Spatial, click_position:Vector3 = Vector3()):
+	hovering = spatial
 	if is_instance_valid(dragging):
-		var final_translation : Vector3
-		final_translation = (click_position + table.translation) * VECTOR_3_Y_MASK
-		final_translation.y = card_drag_height
+		var final_translation : Vector3 = spatial.translation + click_position
+		final_translation *= VECTOR_3_MASK
+		final_translation += VECTOR_3_OFFSET
 		dragging.translation = final_translation
