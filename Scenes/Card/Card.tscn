@@ -45,6 +45,8 @@ material/0 = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
 shape = SubResource( 4 )
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="input_event" from="KinematicBody" to="." method="_on_KinematicBody_input_event"]
 [connection signal="mouse_entered" from="KinematicBody" to="." method="_on_KinematicBody_mouse_entered"]
 [connection signal="mouse_exited" from="KinematicBody" to="." method="_on_KinematicBody_mouse_exited"]
