@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Table/Table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Card/Card.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Game/Camera/ZoomAnimation.tres" type="Animation" id=4]
+[ext_resource path="res://Scenes/Game/Camera/AnimationPlayer.gd" type="Script" id=5]
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 3 )
@@ -11,6 +13,10 @@ script = ExtResource( 3 )
 transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10.25, 6.75 )
 projection = 1
 size = 16.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
+anims/Zoom = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="Table" parent="." instance=ExtResource( 1 )]
 

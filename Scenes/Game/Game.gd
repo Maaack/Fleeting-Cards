@@ -7,6 +7,7 @@ const VECTOR_3_OFFSET = Vector3(0.0, 2.0, 0.0)
 
 onready var camera_node = $Camera
 onready var table_node = $Table
+onready var animate_camera_node = $Camera/AnimationPlayer
 
 var dragging : Card
 var hovering: Spatial
@@ -15,9 +16,15 @@ func _physics_process(_delta):
 	pass
 
 func _input(event):
-	if event is InputEventMouseButton and not event.pressed and event.button_index == 1:
-		if is_instance_valid(dragging):
-			dragging.drop()
+	if event is InputEventMouseButton and not event.pressed:
+		match event.button_index:
+			BUTTON_LEFT:
+				if is_instance_valid(dragging):
+					dragging.drop()
+			BUTTON_WHEEL_UP:
+				zoom_in()
+			BUTTON_WHEEL_DOWN:
+				zoom_out()
 
 func _ready():
 	for child in get_children():
@@ -61,3 +68,9 @@ func _hover_over(spatial:Spatial, click_position:Vector3 = Vector3()):
 
 func _get_tween_time():
 	return 0.1
+
+func zoom_out():
+	animate_camera_node.step(-0.25)
+
+func zoom_in():
+	animate_camera_node.step(0.25)
