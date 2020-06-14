@@ -51,7 +51,8 @@ spot_range = 38.75
 spot_angle = 66.304
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.25, -3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.9139, -5.85314 )
+light_energy = 0.1
 shadow_enabled = true
-omni_range = 43.0
+omni_range = 64.0
 [connection signal="mouse_over" from="Table" to="." method="_on_Table_mouse_over"]

@@ -9,7 +9,7 @@ signal unfocus
 signal drag
 signal drop
 
-onready var outline_node = $CardMesh/OutlineMesh
+onready var outline_node = $OutlineMesh
 onready var body_node = $KinematicBody
 onready var tween_node = $Tween
 
