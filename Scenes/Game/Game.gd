@@ -4,6 +4,7 @@ extends Spatial
 const DEFAULT_RAY_LENGTH = 1024
 const VECTOR_3_MASK = Vector3(1.0, 0.0, 1.0)
 const VECTOR_3_OFFSET = Vector3(0.0, 2.0, 0.0)
+const VECTOR_3_SEPARATION = Vector3(0.0, 0.03, 0.0)
 
 onready var camera_node = $Camera
 onready var table_node = $Table
@@ -43,7 +44,7 @@ func _on_Card_drop(card:Card):
 		if hovering is Table:
 			final_translation = dragging.translation * VECTOR_3_MASK
 		if hovering is Card:
-			final_translation = hovering.translation + Vector3(0.0, 0.1, 0.0)
+			final_translation = hovering.translation + VECTOR_3_SEPARATION
 		dragging.tween_node.interpolate_property(dragging, "translation", dragging.translation, final_translation, _get_tween_time())
 		dragging.tween_node.start()
 		dragging = null
