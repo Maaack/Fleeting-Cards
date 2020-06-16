@@ -1,3 +1,4 @@
+tool
 extends Spatial
 
 
@@ -9,17 +10,42 @@ signal unfocus
 signal drag
 signal drop
 
+enum CARD_FACES{CARD_BACK, CARD_FRONT, CARD_RIM}
+
 onready var outline_node = $OutlineMesh
 onready var body_node = $KinematicBody
 onready var tween_node = $Tween
+onready var card_mesh = $Card/CardMesh
 
+export(StreamTexture) var card_front_texture : StreamTexture setget set_card_front_texture
+
+var empty_card_front_texture = preload("res://Assets/Originals/Images/CardFront_Empty_01.png")
 var focused: bool = false
 var dragging: bool = false
 var flipped: bool = false
 var initial_rotation:Vector3
 
-func ready():
+func _ready():
 	initial_rotation = rotation
+	_update_card_front_texture()
+
+func set_card_front_texture(image:StreamTexture):
+	card_front_texture = image
+	_update_card_front_texture()
+
+func _update_card_front_texture():
+	if not is_instance_valid($Card/CardMesh):
+		return
+	if not is_instance_valid(card_front_texture):
+		card_front_texture = empty_card_front_texture
+	var mesh = $Card/CardMesh.mesh.duplicate()
+	var material = mesh.surface_get_material(CARD_FACES.CARD_FRONT)
+	material = material.duplicate()
+	if material is SpatialMaterial:
+		material.albedo_texture = card_front_texture
+	mesh.surface_set_material(CARD_FACES.CARD_FRONT, material)
+	$Card/CardMesh.mesh = mesh
+	
 
 func _on_KinematicBody_mouse_entered():
 	focus()
