@@ -1,32 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Card/Card.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Card/CardArrayMesh.tres" type="ArrayMesh" id=2]
+[ext_resource path="res://Assets/Originals/Models/glTF Separate/Card.gltf" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Card/CardOutlineMesh.tres" type="ArrayMesh" id=3]
-
-[sub_resource type="SpatialMaterial" id=1]
-flags_unshaded = true
-albedo_color = Color( 1, 1, 1, 0.627451 )
+[ext_resource path="res://Scenes/Card/OutlineMaterial.tres" type="Material" id=4]
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 0.88, 0.01, 1.28 )
+extents = Vector3( 0.88, 0.03, 1.28 )
+
+[sub_resource type="CubeMesh" id=3]
+material = ExtResource( 4 )
+size = Vector3( 1.82, 0.085, 2.62 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 1.76, 0.025, 2.56 )
 
 [node name="Card" type="Spatial" groups=[
 "CARD",
 ]]
 script = ExtResource( 1 )
-
-[node name="OutlineMesh" type="MeshInstance" parent="."]
-visible = false
-mesh = ExtResource( 3 )
-material/0 = SubResource( 1 )
-
-[node name="CardMesh" type="MeshInstance" parent="."]
-transform = Transform( 2.65431e-14, 4.15448e-07, 2.55, 1, -4.15448e-07, 0, 1.62921e-07, 2.55, -4.15448e-07, 0, 0, 0 )
-mesh = ExtResource( 2 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
 
@@ -34,6 +26,26 @@ material/2 = null
 shape = SubResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Card" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.11464e-07, 0, 2.55, 2.55, -1.11464e-07, 1.11464e-07, 1.11464e-07, 2.55, 4.87225e-15, 0, -0.012, 0 )
+
+[node name="OutlineMesh" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Utils" type="Spatial" parent="."]
+
+[node name="OutlineMeshOld" type="MeshInstance" parent="Utils"]
+visible = false
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="CardMeshMatch" type="MeshInstance" parent="Utils"]
+visible = false
+mesh = SubResource( 4 )
+material/0 = null
 [connection signal="input_event" from="KinematicBody" to="." method="_on_KinematicBody_input_event"]
 [connection signal="mouse_entered" from="KinematicBody" to="." method="_on_KinematicBody_mouse_entered"]
 [connection signal="mouse_exited" from="KinematicBody" to="." method="_on_KinematicBody_mouse_exited"]

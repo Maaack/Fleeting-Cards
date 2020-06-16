@@ -1,4 +1,6 @@
-[gd_resource type="ArrayMesh" format=2]
+[gd_resource type="ArrayMesh" load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Card/OutlineMaterial.tres" type="Material" id=1]
 
 [resource]
 surfaces/0 = {
@@ -8,6 +10,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 36,
+"material": ExtResource( 1 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
