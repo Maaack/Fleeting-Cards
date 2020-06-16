@@ -81,7 +81,7 @@
     ],
     "meshes" : [
         {
-            "name" : "CardBack_01",
+            "name" : "MeshArray",
             "primitives" : [
                 {
                     "attributes" : {
