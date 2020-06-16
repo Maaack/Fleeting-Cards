@@ -126,13 +126,13 @@
     "images" : [
         {
             "mimeType" : "image/png",
-            "name" : "CardBack_02",
-            "uri" : "CardBack_02.png"
+            "name" : "CardBack_Black",
+            "uri" : "CardBack_Black.png"
         },
         {
             "mimeType" : "image/png",
-            "name" : "CardFront_Empty_01",
-            "uri" : "CardFront_Empty_01.png"
+            "name" : "CardFront_Empty",
+            "uri" : "CardFront_Empty.png"
         }
     ],
     "accessors" : [

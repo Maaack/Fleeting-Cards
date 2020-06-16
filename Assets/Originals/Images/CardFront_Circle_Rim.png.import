@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/CardFront_Empty_01.png-818569e1635a0e81cfdb1851823f0900.s3tc.stex"
-path.etc="res://.import/CardFront_Empty_01.png-818569e1635a0e81cfdb1851823f0900.etc.stex"
+path.s3tc="res://.import/CardFront_Circle_Rim.png-7e59b7d675c4fc6e48bb4ddea2dda656.s3tc.stex"
+path.etc="res://.import/CardFront_Circle_Rim.png-7e59b7d675c4fc6e48bb4ddea2dda656.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Originals/Images/CardFront_Empty_01.png"
-dest_files=[ "res://.import/CardFront_Empty_01.png-818569e1635a0e81cfdb1851823f0900.s3tc.stex", "res://.import/CardFront_Empty_01.png-818569e1635a0e81cfdb1851823f0900.etc.stex" ]
+source_file="res://Assets/Originals/Images/CardFront_Circle_Rim.png"
+dest_files=[ "res://.import/CardFront_Circle_Rim.png-7e59b7d675c4fc6e48bb4ddea2dda656.s3tc.stex", "res://.import/CardFront_Circle_Rim.png-7e59b7d675c4fc6e48bb4ddea2dda656.etc.stex" ]
 
 [params]
 

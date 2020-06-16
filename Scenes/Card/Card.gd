@@ -19,7 +19,7 @@ onready var card_mesh = $Card/CardMesh
 
 export(StreamTexture) var card_front_texture : StreamTexture setget set_card_front_texture
 
-var empty_card_front_texture = preload("res://Assets/Originals/Images/CardFront_Empty_01.png")
+var empty_card_front_texture = preload("res://Assets/Originals/Images/CardFront_Empty.png")
 var focused: bool = false
 var dragging: bool = false
 var flipped: bool = false

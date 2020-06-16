@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Originals/Models/glTF Separate/Card.gltf" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Card/CardOutlineMesh.tres" type="ArrayMesh" id=3]
 [ext_resource path="res://Scenes/Card/OutlineMaterial.tres" type="Material" id=4]
-[ext_resource path="res://Assets/Originals/Images/CardFront_Empty_01.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Originals/Images/CardFront_Empty.png" type="Texture" id=5]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.88, 0.03, 1.28 )

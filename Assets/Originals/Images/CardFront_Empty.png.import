@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/CardBack_02.png-0d340b18620d41d0e9700a7446d8259b.s3tc.stex"
-path.etc="res://.import/CardBack_02.png-0d340b18620d41d0e9700a7446d8259b.etc.stex"
+path.s3tc="res://.import/CardFront_Empty.png-264a7922d02d182f2fff8b362cdf0811.s3tc.stex"
+path.etc="res://.import/CardFront_Empty.png-264a7922d02d182f2fff8b362cdf0811.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Originals/Models/glTF Separate/CardBack_02.png"
-dest_files=[ "res://.import/CardBack_02.png-0d340b18620d41d0e9700a7446d8259b.s3tc.stex", "res://.import/CardBack_02.png-0d340b18620d41d0e9700a7446d8259b.etc.stex" ]
+source_file="res://Assets/Originals/Images/CardFront_Empty.png"
+dest_files=[ "res://.import/CardFront_Empty.png-264a7922d02d182f2fff8b362cdf0811.s3tc.stex", "res://.import/CardFront_Empty.png-264a7922d02d182f2fff8b362cdf0811.etc.stex" ]
 
 [params]
 
