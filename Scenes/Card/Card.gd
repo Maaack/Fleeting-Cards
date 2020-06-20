@@ -38,13 +38,11 @@ func _update_card_front_texture():
 		return
 	if not is_instance_valid(card_front_texture):
 		card_front_texture = empty_card_front_texture
-	var mesh = $Card/CardMesh.mesh.duplicate()
-	var material = mesh.surface_get_material(CARD_FACES.CARD_FRONT)
+	var material = $Card/CardMesh.mesh.surface_get_material(CARD_FACES.CARD_FRONT)
 	material = material.duplicate()
 	if material is SpatialMaterial:
 		material.albedo_texture = card_front_texture
-	mesh.surface_set_material(CARD_FACES.CARD_FRONT, material)
-	$Card/CardMesh.mesh = mesh
+	$Card/CardMesh.set_surface_material(CARD_FACES.CARD_FRONT, material)
 	
 
 func _on_KinematicBody_mouse_entered():
