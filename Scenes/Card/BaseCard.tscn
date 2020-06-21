@@ -6,13 +6,13 @@
 [ext_resource path="res://Scenes/Card/OutlineMaterial.tres" type="Material" id=4]
 [ext_resource path="res://Assets/Originals/Images/CardFront_Empty.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Card/Text/CardTextMaterial.tres" type="Material" id=6]
-[ext_resource path="res://Scenes/Card/Themes/CardTheme.tres" type="Theme" id=7]
+[ext_resource path="res://Scenes/Card/Text/CardFrontContents.tscn" type="PackedScene" id=7]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.88, 0.03, 1.28 )
 
 [sub_resource type="QuadMesh" id=2]
-size = Vector2( 1.5, 1 )
+size = Vector2( 1.753, 2.55 )
 
 [sub_resource type="CubeMesh" id=3]
 material = ExtResource( 4 )
@@ -35,10 +35,10 @@ shape = SubResource( 1 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Card" parent="." instance=ExtResource( 2 )]
-transform = Transform( 6.7685e-14, -4.15448e-07, 2.55, -2.55, -4.15448e-07, 0, 4.15448e-07, -2.55, -4.15448e-07, 0, -0.012, 0 )
+transform = Transform( 6.7685e-14, -4.15448e-07, 2.55, -2.55, -4.15448e-07, 0, 4.15448e-07, -2.55, -4.15448e-07, 0, 0.013, 0 )
 
 [node name="FrontTextMesh" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0.001, 0.68 )
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0.02, 0 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 6 )
 
@@ -60,25 +60,12 @@ mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 450, 300 )
+size = Vector2( 440, 640 )
 transparent_bg = true
 render_target_v_flip = true
 render_target_update_mode = 3
 
-[node name="Control" type="Control" parent="Viewport"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Label" type="Label" parent="Viewport/Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource( 7 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Testing having text and automatically wrapping that text in a way that makes some sense.
-
-I think this is quite nice!"
-align = 1
-autowrap = true
+[node name="Control" parent="Viewport" instance=ExtResource( 7 )]
 [connection signal="input_event" from="KinematicBody" to="." method="_on_KinematicBody_input_event"]
 [connection signal="mouse_entered" from="KinematicBody" to="." method="_on_KinematicBody_mouse_entered"]
 [connection signal="mouse_exited" from="KinematicBody" to="." method="_on_KinematicBody_mouse_exited"]
