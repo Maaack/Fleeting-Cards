@@ -5,6 +5,13 @@ Author: [Maaack](https://github.com/Maaack)
 Source: [Github](https://github.com/Maaack/Mouse-Pun)  
 License: [MIT License](./LICENSE.md)
 
+## Art Assets
+### Fonts
+#### Card Text
+Author: [Dieter Steffmann](https://www.1001fonts.com/users/steffmann/)  
+Source: [1001fonts.com](https://www.1001fonts.com/morris-roman-font.html)  
+License: [1001Fonts Free For Commercial Use License (FFC)](https://www.1001fonts.com/licenses/ffc.html)  
+
 ## Development Tools
 #### Godot
 Author: [Juan Linietsky, Ariel Manzur and contributors](https://godotengine.org/contact)  

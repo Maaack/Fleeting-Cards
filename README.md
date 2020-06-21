@@ -1,5 +1,5 @@
 # Fleeting Cards
-Fourth project in Godot. A 3D card-game exploring time-sensitive resources and chaining moves.
+Fourth project in Godot. A 3D card-game exploring time-sensitive resources.
 
 ## Resources
 [MIT License](./LICENSE.md)  
