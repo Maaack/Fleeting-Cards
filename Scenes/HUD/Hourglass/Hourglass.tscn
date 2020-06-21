@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Originals/Images/Hourglass_Mixed_01.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Originals/Images/Hourglass_White_01.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/HUD/Hourglass/Hourglass.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Flip"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0 ]
+}
+
+[node name="Hourglass" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = -52.0
+margin_top = -64.0
+margin_right = 468.0
+margin_bottom = 576.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Flip = SubResource( 1 )
+[connection signal="button_down" from="TextureButton" to="." method="_on_TextureButton_button_down"]
