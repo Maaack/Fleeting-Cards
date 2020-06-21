@@ -26,6 +26,8 @@ size = Vector3( 1.76, 0.025, 2.56 )
 ]]
 script = ExtResource( 1 )
 card_front_texture = ExtResource( 5 )
+card_title = "Title text"
+card_description = "Description text"
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
 

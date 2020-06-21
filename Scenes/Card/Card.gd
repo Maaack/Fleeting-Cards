@@ -18,6 +18,8 @@ onready var tween_node = $Tween
 onready var card_mesh = $Card/CardMesh
 
 export(StreamTexture) var card_front_texture : StreamTexture setget set_card_front_texture
+export(String) var card_title : String setget set_card_title
+export(String, MULTILINE) var card_description : String setget set_card_description
 
 var empty_card_front_texture = preload("res://Assets/Originals/Images/CardFront_Empty.png")
 var focused: bool = false
@@ -27,11 +29,38 @@ var initial_rotation:Vector3
 
 func _ready():
 	initial_rotation = rotation
-	_update_card_front_texture()
+	_update_card()
 
 func set_card_front_texture(image:StreamTexture):
 	card_front_texture = image
 	_update_card_front_texture()
+
+func set_card_title(value:String):
+	card_title = value
+	_update_card_title()
+
+func set_card_description(value:String):
+	card_description = value
+	_update_card_description()
+
+func _update_card():
+	_update_card_title()
+	_update_card_description()
+	_update_card_front_texture()
+
+func _update_card_title():
+	if not is_instance_valid($Viewport/Control/Title):
+		return
+	if not card_title:
+		return
+	$Viewport/Control/Title.text = card_title
+
+func _update_card_description():
+	if not is_instance_valid($Viewport/Control/Description):
+		return
+	if not card_description:
+		return
+	$Viewport/Control/Description.text = card_description
 
 func _update_card_front_texture():
 	if not is_instance_valid($Card/CardMesh):
@@ -43,7 +72,6 @@ func _update_card_front_texture():
 	if material is SpatialMaterial:
 		material.albedo_texture = card_front_texture
 	$Card/CardMesh.set_surface_material(CARD_FACES.CARD_FRONT, material)
-	
 
 func _on_KinematicBody_mouse_entered():
 	focus()
