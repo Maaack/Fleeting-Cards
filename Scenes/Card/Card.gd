@@ -20,6 +20,8 @@ onready var card_mesh = $Card/CardMesh
 export(StreamTexture) var card_front_texture : StreamTexture setget set_card_front_texture
 export(String) var card_title : String setget set_card_title
 export(String, MULTILINE) var card_description : String setget set_card_description
+export(int,0,256) var card_from_start : int = 0 setget set_card_from_start
+export(int,0,256) var card_to_end : int = 128 setget set_card_to_end
 
 var empty_card_front_texture = preload("res://Assets/Originals/Images/CardFront_Empty.png")
 var focused: bool = false
@@ -43,24 +45,48 @@ func set_card_description(value:String):
 	card_description = value
 	_update_card_description()
 
+func set_card_from_start(value:int):
+	card_from_start = value
+	_update_card_from_start()
+
+func set_card_to_end(value:int):
+	card_to_end = value
+	_update_card_to_end()
+
 func _update_card():
 	_update_card_title()
 	_update_card_description()
 	_update_card_front_texture()
+	_update_card_from_start()
+	_update_card_to_end()
 
 func _update_card_title():
-	if not is_instance_valid($Viewport/Control/Title):
+	if not is_instance_valid($Viewport/CardFrontContents/Title):
 		return
-	if not card_title:
+	if card_title == null:
 		return
-	$Viewport/Control/Title.text = card_title
+	$Viewport/CardFrontContents/Title.text = card_title
 
 func _update_card_description():
-	if not is_instance_valid($Viewport/Control/Description):
+	if not is_instance_valid($Viewport/CardFrontContents/Description):
 		return
-	if not card_description:
+	if card_description == null:
 		return
-	$Viewport/Control/Description.text = card_description
+	$Viewport/CardFrontContents/Description.text = card_description
+
+func _update_card_from_start():
+	if not is_instance_valid($Viewport/CardFrontContents/FromStart):
+		return
+	if card_from_start == null:
+		return
+	$Viewport/CardFrontContents/FromStart.text = str(card_from_start)
+
+func _update_card_to_end():
+	if not is_instance_valid($Viewport/CardFrontContents/ToEnd):
+		return
+	if card_to_end == null:
+		return
+	$Viewport/CardFrontContents/ToEnd.text = str(card_to_end)
 
 func _update_card_front_texture():
 	if not is_instance_valid($Card/CardMesh):
