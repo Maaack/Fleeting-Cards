@@ -6,6 +6,7 @@
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -13,8 +14,10 @@ __meta__ = {
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 stretch = true
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -22,13 +25,17 @@ __meta__ = {
 size = Vector2( 1024, 600 )
 handle_input_locally = false
 render_target_update_mode = 3
+audio_listener_enable_3d = true
+physics_object_picking = true
 
 [node name="Game" parent="ViewportContainer/Viewport" instance=ExtResource( 1 )]
 
 [node name="HUDContainer" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
