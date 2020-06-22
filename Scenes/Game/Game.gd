@@ -75,3 +75,8 @@ func zoom_out():
 
 func zoom_in():
 	animate_camera_node.step(0.25)
+
+func advance_turn():
+	for child in get_children():
+		if child is Card:
+			child.advance_turn()

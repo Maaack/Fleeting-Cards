@@ -151,3 +151,9 @@ func flip():
 
 func get_flip_time():
 	return 0.25
+
+func advance_turn():
+	card_from_start += 1
+	card_to_end -= 1
+	_update_card_from_start()
+	_update_card_to_end()
