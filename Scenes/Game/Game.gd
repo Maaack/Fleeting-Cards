@@ -12,6 +12,7 @@ onready var animate_camera_node = $Camera/AnimationPlayer
 
 var dragging : Card
 var hovering: Spatial
+var game_turn: int = 0
 
 func _physics_process(_delta):
 	pass
@@ -77,6 +78,8 @@ func zoom_in():
 	animate_camera_node.step(0.25)
 
 func advance_turn():
+	game_turn += 1
+	print("Turn #%d" % game_turn)
 	for child in get_children():
 		if child is Card:
 			child.advance_turn()
