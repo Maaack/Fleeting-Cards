@@ -51,7 +51,7 @@ func move(new_translation:Vector3):
 		var stacked_translation = new_translation + get_over_card_relative_translation(new_translation)
 		card_above.move(stacked_translation)
 
-func get_over_card_translation(click_position:Vector3):
+func get_over_card_translation(click_position:Vector3=Vector3()):
 	if card_above is Card:
 		return card_above.get_over_card_translation(click_position)
 	return .get_over_card_translation(click_position)

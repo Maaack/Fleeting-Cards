@@ -190,5 +190,5 @@ func advance_turn():
 func get_over_card_relative_translation(_click_position:Vector3):
 	return stack_bottom_position.translation
 
-func get_over_card_translation(click_position:Vector3):
+func get_over_card_translation(click_position:Vector3=Vector3()):
 	return translation + get_over_card_relative_translation(click_position)

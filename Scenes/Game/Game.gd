@@ -28,9 +28,16 @@ func _input(event):
 func _ready():
 	for child in get_children():
 		if child is Card:
-			child.connect("drag", self, "_on_Card_drag")
-			child.connect("drop", self, "_on_Card_drop")
-			child.connect("mouse_over", self, "_on_Card_mouse_over")
+			_connect_card_signals(child)
+
+func _post_card_instancing(card_instance):
+	_connect_card_signals(card_instance)
+
+func _connect_card_signals(card_instance):
+	card_instance.connect("drag", self, "_on_Card_drag")
+	card_instance.connect("drop", self, "_on_Card_drop")
+	card_instance.connect("mouse_over", self, "_on_Card_mouse_over")
+	card_instance.connect("spawn_card", self, "_on_Card_spawn_card")
 
 func _on_Card_drag(card:Card):
 	if dragging is Card:
@@ -50,6 +57,11 @@ func _on_Card_drop(card:Card):
 
 func _on_Card_mouse_over(card:Card, camera, event, click_position, click_normal, shape_idx):
 	_hover_over(card)
+
+func _on_Card_spawn_card(card_instance:Spatial, spawn_translation):
+	add_child(card_instance)
+	_post_card_instancing(card_instance)
+	card_instance.translation = spawn_translation
 
 func _on_Table_mouse_over(table:Table, camera, event, click_position, click_normal, shape_idx):
 	_hover_over(table, click_position)
