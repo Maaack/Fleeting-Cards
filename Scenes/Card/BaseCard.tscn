@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Card/StackableCard.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Originals/Models/glTF Separate/Card.gltf" type="PackedScene" id=2]
@@ -11,14 +11,41 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.88, 0.03, 1.28 )
 
-[sub_resource type="QuadMesh" id=2]
+[sub_resource type="Animation" id=2]
+resource_name = "Burn"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 360 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 0.05, 0.05, 0.05 ) ]
+}
+
+[sub_resource type="QuadMesh" id=3]
 size = Vector2( 1.753, 2.55 )
 
-[sub_resource type="CubeMesh" id=3]
+[sub_resource type="CubeMesh" id=4]
 material = ExtResource( 4 )
 size = Vector3( 1.82, 0.085, 2.62 )
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=5]
 size = Vector3( 1.76, 0.025, 2.56 )
 
 [node name="BaseCard" type="Spatial" groups=[
@@ -34,17 +61,20 @@ shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Burn = SubResource( 2 )
+
 [node name="Card" parent="." instance=ExtResource( 2 )]
 transform = Transform( 6.7685e-14, -4.15448e-07, 2.55, -2.55, -4.15448e-07, 0, 4.15448e-07, -2.55, -4.15448e-07, 0, 0.013, 0 )
 
 [node name="FrontTextMesh" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0.02, 0 )
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = ExtResource( 6 )
 
 [node name="OutlineMesh" type="MeshInstance" parent="."]
 visible = false
-mesh = SubResource( 3 )
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Utils" type="Spatial" parent="."]
@@ -56,7 +86,7 @@ material/0 = null
 
 [node name="CardMeshMatch" type="MeshInstance" parent="Utils"]
 visible = false
-mesh = SubResource( 4 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="Viewport" type="Viewport" parent="."]

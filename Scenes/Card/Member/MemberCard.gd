@@ -4,7 +4,7 @@ extends StackableCard
 
 signal spawn_card
 
-var initiative_card_scene = preload("res://Scenes/Card/InitiativeCard.tscn")
+var initiative_card_scene = preload("res://Scenes/Card/Initiative/InitiativeCard.tscn")
 
 func advance_turn():
 	var initiative_card_instance = initiative_card_scene.instance()

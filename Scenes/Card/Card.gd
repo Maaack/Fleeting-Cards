@@ -16,6 +16,7 @@ onready var outline_node = $OutlineMesh
 onready var body_node = $KinematicBody
 onready var tween_node = $Tween
 onready var card_mesh = $Card/CardMesh
+onready var animation_node = $AnimationPlayer
 onready var stack_center_position = $StackCenter
 onready var stack_right_position = $StackRight
 onready var stack_left_position = $StackLeft
@@ -192,3 +193,8 @@ func get_over_card_relative_translation(_click_position:Vector3):
 
 func get_over_card_translation(click_position:Vector3=Vector3()):
 	return translation + get_over_card_relative_translation(click_position)
+
+func remove_self():
+	animation_node.play("Burn")
+	yield(animation_node, "animation_finished")
+	queue_free()
