@@ -16,6 +16,10 @@ onready var outline_node = $OutlineMesh
 onready var body_node = $KinematicBody
 onready var tween_node = $Tween
 onready var card_mesh = $Card/CardMesh
+onready var stack_center_position = $StackCenter
+onready var stack_right_position = $StackRight
+onready var stack_left_position = $StackLeft
+onready var stack_bottom_position = $StackBottom
 
 export(StreamTexture) var card_front_texture : StreamTexture setget set_card_front_texture
 export(String) var card_title : String setget set_card_title
@@ -28,6 +32,7 @@ var focused: bool = false
 var dragging: bool = false
 var flipped: bool = false
 var initial_rotation:Vector3
+
 
 func _ready():
 	initial_rotation = rotation
@@ -120,24 +125,48 @@ func _on_KinematicBody_input_event(camera, event, click_position, click_normal, 
 				flip()
 
 func focus():
-	focused = true
-	outline_node.show()
+	_focus()
 	emit_signal('focus', self)
 
+func _focus():
+	focused = true
+	outline_node.show()
+
 func unfocus():
-	focused = false
-	outline_node.hide()
+	_unfocus()
 	emit_signal('unfocus', self)
 
+func _unfocus():
+	focused = false
+	outline_node.hide()
+
 func drag():
-	dragging = true
-	body_node.input_ray_pickable = false
+	_drag()
 	emit_signal('drag', self)
 
+func _drag():
+	dragging = true
+	body_node.input_ray_pickable = false
+
 func drop():
+	_drop()
+	emit_signal('drop', self)
+
+func _drop():
 	dragging = false
 	body_node.input_ray_pickable = true
-	emit_signal('drop', self)
+
+func move(new_translation:Vector3):
+	if tween_node.is_active():
+		tween_node.seek(_get_tween_time())
+	if translation.distance_to(new_translation) > 0.5:
+		tween_node.interpolate_property(self, "translation", translation, new_translation, _get_tween_time())
+		tween_node.start()
+	else:
+		translation = new_translation
+
+func _get_tween_time():
+	return 0.1
 
 func flip():
 	if flipped:
@@ -157,3 +186,9 @@ func advance_turn():
 	card_to_end -= 1
 	_update_card_from_start()
 	_update_card_to_end()
+
+func get_over_card_relative_translation(_click_position:Vector3):
+	return stack_bottom_position.translation
+
+func get_over_card_translation(click_position:Vector3):
+	return translation + get_over_card_relative_translation(click_position)

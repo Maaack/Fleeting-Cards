@@ -14,9 +14,6 @@ var dragging : Card
 var hovering: Spatial
 var game_turn: int = 0
 
-func _physics_process(_delta):
-	pass
-
 func _input(event):
 	if event is InputEventMouseButton and not event.pressed:
 		match event.button_index:
@@ -36,6 +33,8 @@ func _ready():
 			child.connect("mouse_over", self, "_on_Card_mouse_over")
 
 func _on_Card_drag(card:Card):
+	if dragging is Card:
+		dragging.drop()
 	if is_instance_valid(card):
 		dragging = card
 
@@ -45,9 +44,8 @@ func _on_Card_drop(card:Card):
 		if hovering is Table:
 			final_translation = dragging.translation * VECTOR_3_MASK
 		if hovering is Card:
-			final_translation = hovering.translation + VECTOR_3_SEPARATION
-		dragging.tween_node.interpolate_property(dragging, "translation", dragging.translation, final_translation, _get_tween_time())
-		dragging.tween_node.start()
+			final_translation = hovering.stack_card(dragging)
+		dragging.move(final_translation)
 		dragging = null
 
 func _on_Card_mouse_over(card:Card, camera, event, click_position, click_normal, shape_idx):
@@ -59,14 +57,14 @@ func _on_Table_mouse_over(table:Table, camera, event, click_position, click_norm
 func _hover_over(spatial:Spatial, click_position:Vector3 = Vector3()):
 	hovering = spatial
 	if is_instance_valid(dragging):
-		var final_translation : Vector3 = spatial.translation + click_position
+		var final_translation : Vector3
+		if hovering is Card:
+			final_translation = hovering.get_over_card_translation(click_position)
+		else:
+			final_translation = spatial.translation + click_position
 		final_translation *= VECTOR_3_MASK
 		final_translation += VECTOR_3_OFFSET
-		if dragging.translation.distance_to(final_translation) > 0.5:
-			dragging.tween_node.interpolate_property(dragging, "translation", dragging.translation, final_translation, _get_tween_time())
-			dragging.tween_node.start()
-		else:
-			dragging.translation = final_translation
+		dragging.move(final_translation)
 
 func _get_tween_time():
 	return 0.1
