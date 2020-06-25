@@ -17,10 +17,10 @@ onready var body_node = $KinematicBody
 onready var tween_node = $Tween
 onready var card_mesh = $Card/CardMesh
 onready var animation_node = $AnimationPlayer
-onready var stack_center_position = $StackCenter
-onready var stack_right_position = $StackRight
-onready var stack_left_position = $StackLeft
-onready var stack_bottom_position = $StackBottom
+onready var stack_center_position = $Stack/StackCenter
+onready var stack_right_position = $Stack/StackRight
+onready var stack_left_position = $Stack/StackLeft
+onready var stack_bottom_position = $Stack/StackBottom
 
 export(StreamTexture) var card_front_texture : StreamTexture setget set_card_front_texture
 export(String) var card_title : String setget set_card_title
