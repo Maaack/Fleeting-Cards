@@ -12,7 +12,9 @@ resource_local_to_scene = true
 flags_transparent = true
 albedo_texture = SubResource( 1 )
 
-[node name="InitiativeCard" instance=ExtResource( 1 )]
+[node name="InitiativeCard" groups=[
+"INITIATIVE",
+] instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 card_front_texture = ExtResource( 2 )
 card_title = "Initiative"

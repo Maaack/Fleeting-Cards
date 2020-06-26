@@ -3,8 +3,14 @@
 [ext_resource path="res://Assets/Originals/Images/PanelBackground_64x64.png" type="Texture" id=1]
 
 [node name="BaseCardPanel" type="NinePatchRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
 texture = ExtResource( 1 )
 patch_margin_left = 16
 patch_margin_top = 16

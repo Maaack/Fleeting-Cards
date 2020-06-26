@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Card/Themes/CardCounterTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Originals/Images/CardIcons_Circle.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/CardRequirement.gd" type="Script" id=3]
+
+[node name="CardRequirement" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 12
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuantityLabel" type="Label" parent="."]
+margin_top = 265.0
+margin_right = 50.0
+margin_bottom = 335.0
+rect_min_size = Vector2( 50, 70 )
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "4"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IconContainer" type="Control" parent="."]
+margin_left = 62.0
+margin_top = 268.0
+margin_right = 1024.0
+margin_bottom = 332.0
+rect_min_size = Vector2( 0, 64 )
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="IconRect" type="TextureRect" parent="IconContainer"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 64, 64 )
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
