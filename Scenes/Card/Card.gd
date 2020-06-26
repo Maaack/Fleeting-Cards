@@ -195,6 +195,7 @@ func get_over_card_translation(click_position:Vector3=Vector3()):
 	return translation + get_over_card_relative_translation(click_position)
 
 func remove_self():
-	animation_node.play("Burn")
-	yield(animation_node, "animation_finished")
+	if is_instance_valid(animation_node):
+		animation_node.play("Burn")
+		yield(animation_node, "animation_finished")
 	queue_free()

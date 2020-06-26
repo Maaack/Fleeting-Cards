@@ -60,7 +60,7 @@ func remove_self():
 	var old_card_above = card_above
 	var old_card_below = card_below
 	.remove_self()
-	if tween_node.is_active():
+	if is_instance_valid(tween_node) and tween_node.is_active():
 		tween_node.seek(_get_tween_time())
 	unstack_card()
 	if is_instance_valid(old_card_above):
