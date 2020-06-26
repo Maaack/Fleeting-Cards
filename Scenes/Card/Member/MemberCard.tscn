@@ -19,5 +19,5 @@ card_title = "Member"
 card_description = "A motivated individual.
 Creates Initiative every turn. Multiple create Strengths and Weaknesses."
 
-[node name="FrontTextMesh" parent="." index="4"]
+[node name="FrontTextMesh" parent="." index="6"]
 material/0 = SubResource( 2 )
