@@ -18,5 +18,5 @@ card_description = "United we stand.
 A benefit to working together.
 Takes Initiative."
 
-[node name="FrontTextMesh" parent="." index="3"]
+[node name="FrontTextMesh" parent="." index="6"]
 material/0 = SubResource( 2 )

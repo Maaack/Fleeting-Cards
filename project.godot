@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "StackableCard",
 "class": "MomentCard",
 "language": "GDScript",
-"path": "res://Scenes/Card/MomentCard.gd"
+"path": "res://Scenes/Card/Moments/MomentCard.gd"
 }, {
 "base": "Resource",
 "class": "Requirement",
