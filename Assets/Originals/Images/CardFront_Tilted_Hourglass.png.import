@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/CardFront_Titled_Hourglass.png-78a76cee09ebc0895445b44e76d77ecf.s3tc.stex"
-path.etc="res://.import/CardFront_Titled_Hourglass.png-78a76cee09ebc0895445b44e76d77ecf.etc.stex"
+path.s3tc="res://.import/CardFront_Tilted_Hourglass.png-751676025e711bd3246929a0ece55e36.s3tc.stex"
+path.etc="res://.import/CardFront_Tilted_Hourglass.png-751676025e711bd3246929a0ece55e36.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Originals/Images/CardFront_Titled_Hourglass.png"
-dest_files=[ "res://.import/CardFront_Titled_Hourglass.png-78a76cee09ebc0895445b44e76d77ecf.s3tc.stex", "res://.import/CardFront_Titled_Hourglass.png-78a76cee09ebc0895445b44e76d77ecf.etc.stex" ]
+source_file="res://Assets/Originals/Images/CardFront_Tilted_Hourglass.png"
+dest_files=[ "res://.import/CardFront_Tilted_Hourglass.png-751676025e711bd3246929a0ece55e36.s3tc.stex", "res://.import/CardFront_Tilted_Hourglass.png-751676025e711bd3246929a0ece55e36.etc.stex" ]
 
 [params]
 
