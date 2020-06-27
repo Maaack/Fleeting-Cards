@@ -12,24 +12,37 @@ onready var requirements_animation_node = $Viewport/CardFrontContents/Requiremen
 
 export(Array, Resource) var init_requirements
 export(Array, Resource) var init_rewards
+export(Array, Resource) var init_penalties
 
 var requirements : Array = []
 var rewards : Array = []
+var penalties : Array = []
 
 func _ready():
 	requirements_node.show()
+	_update_requirements()
+	_update_rewards()
+	_update_penalties()
+
+func _update_requirements():
 	for init_requirement in init_requirements:
 		var requirement = init_requirement.duplicate()
 		requirements.append(requirement)
 		requirements_node.add_requirement(requirement)
+
+func _update_rewards():
 	for init_reward in init_rewards:
 		var reward = init_reward.duplicate()
 		rewards.append(reward)
-	
+
+func _update_penalties():
+	for init_penalty in init_penalties:
+		var penalty = init_penalty.duplicate()
+		penalties.append(penalty)
+
 func advance_turn():
 	var advance_return = .advance_turn()
-	if card_to_end <= 0:
-		remove_self()
+	active_penalty()
 	return advance_return
 
 func focus():
@@ -81,4 +94,15 @@ func _activate_reward():
 func activate_reward():
 	if check_requirements():
 		_activate_reward()
+		remove_self()
+
+func _activate_penalty():
+	for penalty in penalties:
+		if penalty is Reward:
+			var card_instance = penalty.card_scene.instance()
+			emit_signal("spawn_card", card_instance, stack_card(card_instance))
+
+func active_penalty():
+	if card_to_end <= 0:
+		_activate_penalty()
 		remove_self()

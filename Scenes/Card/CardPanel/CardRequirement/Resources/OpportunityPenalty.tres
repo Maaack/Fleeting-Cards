@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/RewardResource.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Card/Opportunity/MissedOpportunity/MissedOpportunityCard.tscn" type="PackedScene" id=2]
+
+[resource]
+script = ExtResource( 1 )
+card_group = "MISSED_OPPORTUNITY"
+card_scene = ExtResource( 2 )
