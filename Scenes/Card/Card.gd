@@ -29,6 +29,7 @@ export(int,0,256) var card_from_start : int = 0 setget set_card_from_start
 export(int,0,256) var card_to_end : int = 128 setget set_card_to_end
 
 var empty_card_front_texture = preload("res://Assets/Originals/Images/CardFront_Empty.png")
+var destroyed: bool = false 
 var focused: bool = false
 var dragging: bool = false
 var flipped: bool = false
@@ -195,6 +196,9 @@ func get_over_card_translation(click_position:Vector3=Vector3()):
 	return translation + get_over_card_relative_translation(click_position)
 
 func remove_self():
+	if destroyed:
+		return
+	destroyed = true
 	if is_instance_valid(animation_node):
 		animation_node.play("Burn")
 		yield(animation_node, "animation_finished")

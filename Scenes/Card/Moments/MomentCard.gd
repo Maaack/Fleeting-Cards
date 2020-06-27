@@ -82,6 +82,8 @@ func stack_card(to_stack:Card):
 	return .stack_card(to_stack)
 
 func check_requirements():
+	if destroyed:
+		return false
 	for requirement in requirements:
 		if requirement.card_quantity > 0:
 			return false
@@ -89,9 +91,12 @@ func check_requirements():
 
 func _activate_reward():
 	for reward in rewards:
+		var card_instance
 		if reward is Reward:
-			var card_instance = reward.card_scene.instance()
-			emit_signal("spawn_card", card_instance, stack_card(card_instance))
+			card_instance = reward.card_scene.instance()
+		elif reward is PackedScene:
+			card_instance = reward.instance()
+		emit_signal("spawn_card", card_instance, stack_card(card_instance))
 
 func activate_reward():
 	if check_requirements():
@@ -100,11 +105,14 @@ func activate_reward():
 
 func _activate_penalty():
 	for penalty in penalties:
+		var card_instance
 		if penalty is Reward:
-			var card_instance = penalty.card_scene.instance()
-			emit_signal("spawn_card", card_instance, stack_card(card_instance))
+			card_instance = penalty.card_scene.instance()
+		elif penalty is PackedScene:
+			card_instance = penalty.instance()
+		emit_signal("spawn_card", card_instance, stack_card(card_instance))
 
 func active_penalty():
-	if card_to_end <= 0:
+	if card_to_end <= 0 and not destroyed:
 		_activate_penalty()
 		remove_self()
