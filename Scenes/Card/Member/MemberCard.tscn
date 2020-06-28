@@ -17,7 +17,7 @@ script = ExtResource( 3 )
 card_front_texture = ExtResource( 2 )
 card_title = "Member"
 card_description = "A motivated individual.
-Creates Initiative every turn. Multiple create Strengths and Weaknesses."
+Part of your Alliance. Creates Initiative every turn."
 
 [node name="FrontTextMesh" parent="." index="6"]
 material/0 = SubResource( 2 )

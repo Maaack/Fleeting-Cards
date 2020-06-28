@@ -11,8 +11,8 @@ onready var table_node = $Table
 onready var animate_camera_node = $Camera/AnimationPlayer
 
 var dragging : Card
-var hovering: Spatial
-var game_turn: int = 0
+var hovering : Spatial
+var game_turn : int = 0
 
 func _input(event):
 	if event is InputEventMouseButton and not event.pressed:

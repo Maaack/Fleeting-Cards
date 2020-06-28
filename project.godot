@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "StackableCard",
+"class": "AllianceCard",
+"language": "GDScript",
+"path": "res://Scenes/Card/Alliance/AllianceCard.gd"
+}, {
 "base": "Spatial",
 "class": "Card",
 "language": "GDScript",
 "path": "res://Scenes/Card/Card.gd"
+}, {
+"base": "StackableCard",
+"class": "MemberCard",
+"language": "GDScript",
+"path": "res://Scenes/Card/Member/MemberCard.gd"
 }, {
 "base": "StackableCard",
 "class": "MomentCard",
@@ -45,7 +55,9 @@ _global_script_classes=[ {
 "path": "res://Scenes/Table/Table.gd"
 } ]
 _global_script_class_icons={
+"AllianceCard": "",
 "Card": "",
+"MemberCard": "",
 "MomentCard": "",
 "Requirement": "",
 "Reward": "",

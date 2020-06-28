@@ -2,6 +2,8 @@ tool
 extends StackableCard
 
 
+class_name MemberCard
+
 signal spawn_card
 
 var initiative_card_scene = preload("res://Scenes/Card/Initiative/InitiativeCard.tscn")

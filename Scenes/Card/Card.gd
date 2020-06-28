@@ -132,7 +132,9 @@ func focus():
 
 func _focus():
 	focused = true
-	outline_node.show()
+	if not is_instance_valid($OutlineMesh):
+		return
+	$OutlineMesh.show()
 
 func unfocus():
 	_unfocus()
@@ -140,7 +142,9 @@ func unfocus():
 
 func _unfocus():
 	focused = false
-	outline_node.hide()
+	if not is_instance_valid($OutlineMesh):
+		return
+	$OutlineMesh.hide()
 
 func drag():
 	_drag()
@@ -190,7 +194,9 @@ func advance_turn():
 	_update_card_to_end()
 
 func get_over_card_relative_translation(_click_position:Vector3):
-	return stack_bottom_position.translation
+	if not is_instance_valid($Stack/StackBottom):
+		return
+	return $Stack/StackBottom.translation
 
 func get_over_card_translation(click_position:Vector3=Vector3()):
 	return translation + get_over_card_relative_translation(click_position)
