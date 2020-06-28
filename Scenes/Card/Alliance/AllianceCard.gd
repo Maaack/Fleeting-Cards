@@ -13,6 +13,8 @@ var strength_spawn_timers : Array = []
 var weakness_spawn_timers : Array = []
 var strength_timer : int = 0
 var weakness_timer : int = 0
+var strength_increment : int = 0
+var weakness_increment : int = 0
 
 func _ready():
 	_update_strength_spawn_timers()
@@ -42,22 +44,31 @@ func get_all_members():
 	return members
 
 func _update_timers():
+	strength_increment = 0
+	weakness_increment = 0
 	var members = get_all_members()
 	if members.size() == 0:
 		return
-	var strength_increment = max(0, members.size() - 1)
-	var weakness_increment = max(0, members.size() - 1)
+	strength_increment = max(0, members.size() - 1)
+	weakness_increment = max(0, members.size() - 1)
 	strength_timer += strength_increment
 	weakness_timer += weakness_increment
 
 func _spawn_from_array(timer:int, spawn_timers:Array):
 	for spawn_timer in spawn_timers:
 		if spawn_timer is SpawnTimer:
-			if timer > 0 and timer % spawn_timer.card_spawn_delay == 0:
-				print("timer ", timer, " ", spawn_timer.card_spawn_delay, " ", timer % spawn_timer.card_spawn_delay)
+			if timer % spawn_timer.card_spawn_delay == 0:
 				var card_instance = spawn_timer.card_scene.instance()
 				emit_signal("spawn_card", card_instance, stack_card(card_instance))
 
+func _can_spawn_strength():
+	return strength_increment > 0
+
+func _can_spawn_weakness():
+	return weakness_increment > 0
+
 func _spawn_modifications():
-	_spawn_from_array(strength_timer, strength_spawn_timers)
-	_spawn_from_array(weakness_timer, weakness_spawn_timers)
+	if _can_spawn_strength():
+		_spawn_from_array(strength_timer, strength_spawn_timers)
+	if _can_spawn_weakness():
+		_spawn_from_array(weakness_timer, weakness_spawn_timers)
