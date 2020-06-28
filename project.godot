@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Card/CardPanel/CardRequirement/RewardResource.gd"
 }, {
+"base": "Resource",
+"class": "SpawnTimer",
+"language": "GDScript",
+"path": "res://Scenes/Card/CardPanel/CardRequirement/SpawnTimerResource.gd"
+}, {
 "base": "Card",
 "class": "StackableCard",
 "language": "GDScript",
@@ -44,6 +49,7 @@ _global_script_class_icons={
 "MomentCard": "",
 "Requirement": "",
 "Reward": "",
+"SpawnTimer": "",
 "StackableCard": "",
 "Table": ""
 }
