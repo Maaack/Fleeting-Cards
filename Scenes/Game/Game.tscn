@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Table/Table.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Card/ObstacleCard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Card/Modifiers/Obstacle/ObstacleCard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Game/Camera/ZoomAnimation.tres" type="Animation" id=4]
 [ext_resource path="res://Scenes/Game/Camera/AnimationPlayer.gd" type="Script" id=5]
@@ -10,7 +10,7 @@
 [ext_resource path="res://Scenes/Card/Member/MemberCard.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Card/SquareCard.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Card/Event/EventCard.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Card/GoalCard.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Card/Modifiers/Goal/GoalCard.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Card/Moments/Opportunity/OpportunityCard.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Card/Moments/Weakness/WeaknessCard.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Card/Moments/Strength/StrengthCard.tscn" type="PackedScene" id=14]
@@ -46,11 +46,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1.5 )
 
 [node name="CircleCard" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5 )
-card_from_start = 0
 
 [node name="CircleCard2" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, -1.5 )
-card_from_start = 0
 
 [node name="SquareCard" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5 )

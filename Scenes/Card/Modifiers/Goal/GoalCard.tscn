@@ -17,5 +17,5 @@ card_title = "Goal"
 card_description = "A shared objective.
 Converts seized Opportunities into additional Progress. "
 
-[node name="FrontTextMesh" parent="." index="3"]
+[node name="FrontTextMesh" parent="." index="6"]
 material/0 = SubResource( 2 )

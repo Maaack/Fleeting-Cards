@@ -11,7 +11,11 @@ resource_local_to_scene = true
 flags_transparent = true
 albedo_texture = SubResource( 1 )
 
-[node name="NeutralizedThreatCard" instance=ExtResource( 1 )]
+[node name="NeutralizedThreatCard" groups=[
+"MOMENT_OUTCOME",
+"SUCCESSFUL_OUTCOME",
+"THREAT",
+] instance=ExtResource( 1 )]
 card_front_texture = ExtResource( 2 )
 card_title = "Threat (N)"
 card_description = "A Neutralized Threat.
