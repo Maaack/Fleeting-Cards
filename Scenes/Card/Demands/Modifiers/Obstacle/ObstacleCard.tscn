@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Card/BaseCard.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Originals/Images/CardFront_Triangle_Down.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Card/Demands/Modifiers/ModifierCard.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Originals/Images/CardFront_Triangle_Down.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/InsurmountableThreatRequirement.tres" type="Resource" id=4]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
@@ -12,10 +14,12 @@ flags_transparent = true
 albedo_texture = SubResource( 1 )
 
 [node name="ObstacleCard" instance=ExtResource( 1 )]
-card_front_texture = ExtResource( 2 )
+script = ExtResource( 2 )
+card_front_texture = ExtResource( 3 )
 card_title = "Obstacle"
 card_description = "It stands in the way.
 Converts Missed Threats into additional Interference."
+init_requirements = [ ExtResource( 4 ) ]
 
-[node name="FrontTextMesh" parent="." index="3"]
+[node name="FrontTextMesh" parent="." index="6"]
 material/0 = SubResource( 2 )
