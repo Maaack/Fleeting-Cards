@@ -209,3 +209,9 @@ func remove_self():
 		animation_node.play("Burn")
 		yield(animation_node, "animation_finished")
 	queue_free()
+
+func is_in_groups(group_names:Array):
+	for group_name in group_names:
+		if not is_in_group(group_name):
+			return false
+	return true

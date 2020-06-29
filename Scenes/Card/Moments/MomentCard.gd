@@ -74,7 +74,7 @@ func hide_requirements():
 
 func stack_card(to_stack:Card):
 	for requirement in requirements:
-		if to_stack.is_in_group(requirement.card_group):
+		if to_stack.is_in_groups(requirement.card_groups):
 			requirement.card_quantity -= 1
 			to_stack.remove_self()
 			activate_reward()
