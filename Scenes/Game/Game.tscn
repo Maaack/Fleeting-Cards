@@ -37,13 +37,9 @@ script = ExtResource( 5 )
 
 [node name="EventCard" parent="." instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4.5 )
-card_from_start = 0
-card_to_end = 128
 
 [node name="EventCard2" parent="." instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4.5 )
-card_from_start = 0
-card_to_end = 128
 
 [node name="PersonCard" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1.5 )
@@ -65,8 +61,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4.5 )
 
 [node name="GoalCard" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1.5 )
-card_from_start = 0
-card_to_end = 128
 
 [node name="StrengthCard" parent="." instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1.5 )

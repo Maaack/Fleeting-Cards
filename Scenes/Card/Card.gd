@@ -10,7 +10,7 @@ signal unfocus
 signal drag
 signal drop
 
-enum CARD_FACES{CARD_BACK, CARD_FRONT, CARD_RIM}
+enum CardFaces{CARD_BACK, CARD_FRONT, CARD_RIM}
 
 onready var outline_node = $OutlineMesh
 onready var body_node = $KinematicBody
@@ -100,11 +100,11 @@ func _update_card_front_texture():
 		return
 	if not is_instance_valid(card_front_texture):
 		card_front_texture = empty_card_front_texture
-	var material = $Card/CardMesh.mesh.surface_get_material(CARD_FACES.CARD_FRONT)
+	var material = $Card/CardMesh.mesh.surface_get_material(CardFaces.CARD_FRONT)
 	material = material.duplicate()
 	if material is SpatialMaterial:
 		material.albedo_texture = card_front_texture
-	$Card/CardMesh.set_surface_material(CARD_FACES.CARD_FRONT, material)
+	$Card/CardMesh.set_surface_material(CardFaces.CARD_FRONT, material)
 
 func _on_KinematicBody_mouse_entered():
 	focus()

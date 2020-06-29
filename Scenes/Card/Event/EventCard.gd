@@ -23,7 +23,12 @@ func advance_turn():
 func _check_spawn_timers():
 	for spawn_timer in spawn_timers:
 		if spawn_timer is SpawnTimer:
-			if card_from_start % spawn_timer.card_spawn_delay == 0:
-				var card_instance = spawn_timer.card_scene.instance()
-				emit_signal("spawn_card", card_instance, stack_card(card_instance))
-
+			match(spawn_timer.spawn_timer_setting):
+				spawn_timer.TimerSetting.REPEAT:
+					if card_from_start % spawn_timer.card_spawn_delay == 0:
+						var card_instance = spawn_timer.card_scene.instance()
+						emit_signal("spawn_card", card_instance, stack_card(card_instance))
+				spawn_timer.TimerSetting.ONCE:
+					if card_from_start == spawn_timer.card_spawn_delay:
+						var card_instance = spawn_timer.card_scene.instance()
+						emit_signal("spawn_card", card_instance, stack_card(card_instance))
