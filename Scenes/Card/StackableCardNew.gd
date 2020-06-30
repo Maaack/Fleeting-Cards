@@ -1,8 +1,8 @@
 tool
-extends Card
+extends CardNew
 
 
-class_name StackableCard
+class_name StackableCardNew
 
 var card_above : AbstractCard
 var card_below : AbstractCard
@@ -56,10 +56,10 @@ func get_over_card_translation(click_position:Vector3=Vector3()):
 		return card_above.get_over_card_translation(click_position)
 	return .get_over_card_translation(click_position)
 
-func remove_self():
+func burn():
 	var old_card_above = card_above
 	var old_card_below = card_below
-	.remove_self()
+	.burn()
 	if is_instance_valid(tween_node) and tween_node.is_active():
 		tween_node.seek(_get_tween_time())
 	unstack_card()

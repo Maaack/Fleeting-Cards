@@ -1,5 +1,5 @@
 tool
-extends StackableCard
+extends StackableCardNew
 
 
 signal spawn_card
@@ -7,7 +7,7 @@ signal spawn_card
 
 func advance_turn():
 	var advance_return = .advance_turn()
-	if card_to_end <= 0:
-		remove_self()
+	if card_settings.to_end <= 0:
+		burn()
 	return advance_return
 

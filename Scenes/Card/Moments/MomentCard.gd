@@ -72,7 +72,7 @@ func hide_requirements():
 	if not dragging and not focused:
 		_hide_requirements()
 
-func stack_card(to_stack:Card):
+func stack_card(to_stack:AbstractCard):
 	for requirement in requirements:
 		if to_stack.is_in_groups(requirement.card_groups):
 			requirement.card_quantity -= 1

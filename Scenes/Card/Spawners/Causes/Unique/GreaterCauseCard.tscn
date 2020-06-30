@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/Card/Causes/CauseCard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Card/Spawners/Causes/CauseCard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Originals/Images/CardFront_Square.png" type="Texture" id=2]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
@@ -11,8 +12,9 @@ flags_transparent = true
 albedo_texture = SubResource( 1 )
 
 [node name="GreaterCauseCard" instance=ExtResource( 1 )]
+card_front_texture = ExtResource( 2 )
 card_title = "Greater Cause"
-card_description = "Bigger than all of us. It generates the most important goals and obstacles."
+card_description = "Bigger than all of us. It dictates the most important goals and obstacles."
 
 [node name="FrontTextMesh" parent="." index="6"]
 material/0 = SubResource( 2 )

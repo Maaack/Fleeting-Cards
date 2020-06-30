@@ -2,7 +2,7 @@ tool
 extends AbstractCard
 
 
-class_name Card
+class_name CardNew
 
 signal mouse_over
 signal focus
@@ -22,14 +22,11 @@ onready var stack_right_position = $Stack/StackRight
 onready var stack_left_position = $Stack/StackLeft
 onready var stack_bottom_position = $Stack/StackBottom
 
-export(StreamTexture) var card_front_texture : StreamTexture setget set_card_front_texture
-export(String) var card_title : String setget set_card_title
-export(String, MULTILINE) var card_description : String setget set_card_description
-export(int,0,256) var card_from_start : int = 0 setget set_card_from_start
-export(int,0,256) var card_to_end : int = 128 setget set_card_to_end
+export(Resource) var init_card_settings : Resource setget set_init_card_settings
 
+var card_settings : CardSettings
 var empty_card_front_texture = preload("res://Assets/Originals/Images/CardFront_Empty.png")
-var destroyed: bool = false 
+var burned: bool = false 
 var focused: bool = false
 var dragging: bool = false
 var flipped: bool = false
@@ -40,25 +37,14 @@ func _ready():
 	initial_rotation = rotation
 	_update_card()
 
-func set_card_front_texture(image:StreamTexture):
-	card_front_texture = image
-	_update_card_front_texture()
+func set_init_card_settings(value:CardSettings):
+	init_card_settings = value
+	_apply_init_settings()
 
-func set_card_title(value:String):
-	card_title = value
-	_update_card_title()
-
-func set_card_description(value:String):
-	card_description = value
-	_update_card_description()
-
-func set_card_from_start(value:int):
-	card_from_start = value
-	_update_card_from_start()
-
-func set_card_to_end(value:int):
-	card_to_end = value
-	_update_card_to_end()
+func _apply_init_settings():
+	if init_card_settings is CardSettings:
+		card_settings = init_card_settings.duplicate()
+		_update_card()
 
 func _update_card():
 	_update_card_title()
@@ -70,40 +56,44 @@ func _update_card():
 func _update_card_title():
 	if not is_instance_valid($Viewport/CardFrontContents/Title):
 		return
-	if card_title == null:
+	if card_settings.title == null:
 		return
-	$Viewport/CardFrontContents/Title.text = card_title
+	$Viewport/CardFrontContents/Title.text = card_settings.title
 
 func _update_card_description():
 	if not is_instance_valid($Viewport/CardFrontContents/Description):
 		return
-	if card_description == null:
+	if card_settings.description == null:
 		return
-	$Viewport/CardFrontContents/Description.text = card_description
+	$Viewport/CardFrontContents/Description.text = card_settings.description
 
 func _update_card_from_start():
 	if not is_instance_valid($Viewport/CardFrontContents/FromStart):
 		return
-	if card_from_start == null:
+	if not card_settings.counting_from_start:
+		$Viewport/CardFrontContents/FromStart.hide()
 		return
-	$Viewport/CardFrontContents/FromStart.text = str(card_from_start)
+	$Viewport/CardFrontContents/FromStart.show()
+	$Viewport/CardFrontContents/FromStart.text = str(card_settings.from_start)
 
 func _update_card_to_end():
 	if not is_instance_valid($Viewport/CardFrontContents/ToEnd):
 		return
-	if card_to_end == null:
+	if not card_settings.counting_to_end:
+		$Viewport/CardFrontContents/ToEnd.hide()
 		return
-	$Viewport/CardFrontContents/ToEnd.text = str(card_to_end)
+	$Viewport/CardFrontContents/ToEnd.show()
+	$Viewport/CardFrontContents/ToEnd.text = str(card_settings.to_end)
 
 func _update_card_front_texture():
 	if not is_instance_valid($Card/CardMesh):
 		return
-	if not is_instance_valid(card_front_texture):
-		card_front_texture = empty_card_front_texture
+	if not is_instance_valid(card_settings.front_texture):
+		card_settings.front_texture = empty_card_front_texture
 	var material = $Card/CardMesh.mesh.surface_get_material(CardFaces.CARD_FRONT)
 	material = material.duplicate()
 	if material is SpatialMaterial:
-		material.albedo_texture = card_front_texture
+		material.albedo_texture = card_settings.front_texture
 	$Card/CardMesh.set_surface_material(CardFaces.CARD_FRONT, material)
 
 func _on_KinematicBody_mouse_entered():
@@ -188,8 +178,8 @@ func get_flip_time():
 	return 0.25
 
 func advance_turn():
-	card_from_start += 1
-	card_to_end -= 1
+	card_settings.from_start += 1
+	card_settings.to_end -= 1
 	_update_card_from_start()
 	_update_card_to_end()
 
@@ -201,10 +191,10 @@ func get_over_card_relative_translation(_click_position:Vector3):
 func get_over_card_translation(click_position:Vector3=Vector3()):
 	return translation + get_over_card_relative_translation(click_position)
 
-func remove_self():
-	if destroyed:
+func burn():
+	if burned:
 		return
-	destroyed = true
+	burned = true
 	if is_instance_valid(animation_node):
 		animation_node.play("Burn")
 		yield(animation_node, "animation_finished")

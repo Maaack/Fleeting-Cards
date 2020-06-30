@@ -10,7 +10,7 @@ onready var camera_node = $Camera
 onready var table_node = $Table
 onready var animate_camera_node = $Camera/AnimationPlayer
 
-var dragging : Card
+var dragging : AbstractCard
 var hovering : Spatial
 var game_turn : int = 0
 
@@ -27,7 +27,7 @@ func _input(event):
 
 func _ready():
 	for child in get_children():
-		if child is Card:
+		if child is AbstractCard:
 			_connect_card_signals(child)
 
 func _post_card_instancing(card_instance):
@@ -39,23 +39,23 @@ func _connect_card_signals(card_instance):
 	card_instance.connect("mouse_over", self, "_on_Card_mouse_over")
 	card_instance.connect("spawn_card", self, "_on_Card_spawn_card")
 
-func _on_Card_drag(card:Card):
-	if dragging is Card:
+func _on_Card_drag(card:AbstractCard):
+	if dragging is AbstractCard:
 		dragging.drop()
 	if is_instance_valid(card):
 		dragging = card
 
-func _on_Card_drop(card:Card):
+func _on_Card_drop(card:AbstractCard):
 	if is_instance_valid(dragging):
 		var final_translation:Vector3 = Vector3()
 		if hovering is Table:
 			final_translation = dragging.translation * VECTOR_3_MASK
-		if hovering is Card:
+		if hovering is AbstractCard:
 			final_translation = hovering.stack_card(dragging)
 		dragging.move(final_translation)
 		dragging = null
 
-func _on_Card_mouse_over(card:Card, camera, event, click_position, click_normal, shape_idx):
+func _on_Card_mouse_over(card:AbstractCard, camera, event, click_position, click_normal, shape_idx):
 	_hover_over(card)
 
 func _on_Card_spawn_card(card_instance:Spatial, spawn_translation):
@@ -70,7 +70,7 @@ func _hover_over(spatial:Spatial, click_position:Vector3 = Vector3()):
 	hovering = spatial
 	if is_instance_valid(dragging):
 		var final_translation : Vector3
-		if hovering is Card:
+		if hovering is AbstractCard:
 			final_translation = hovering.get_over_card_translation(click_position)
 		else:
 			final_translation = spatial.translation + click_position
@@ -91,5 +91,5 @@ func advance_turn():
 	game_turn += 1
 	print("Turn #%d" % game_turn)
 	for child in get_children():
-		if child is Card:
+		if child is AbstractCard:
 			child.advance_turn()

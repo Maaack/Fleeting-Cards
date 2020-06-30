@@ -2,9 +2,11 @@ extends AnimationPlayer
 
 
 const ZOOM_ANIMATION = "Zoom"
+const INITIAL_ZOOM = 3.5
 
 func _ready():
 	play(ZOOM_ANIMATION)
+	advance(INITIAL_ZOOM)
 	stop(false)
 
 func step(value:float):
