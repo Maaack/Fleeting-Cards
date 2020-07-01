@@ -10,6 +10,6 @@ title = "Strength (F)"
 description = "An Atrophied Strength.
 This could have been something other than wasted potential."
 counting_from_start = false
-counting_to_end = false
+counting_to_end = true
 from_start = 0
-to_end = 0
+to_end = 16
