@@ -5,13 +5,14 @@
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Game/Camera/ZoomAnimation.tres" type="Animation" id=4]
 [ext_resource path="res://Scenes/Game/Camera/AnimationPlayer.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/Card/Spawners/Events/Uniques/TheBeginningCard.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Card/Spawners/Events/Uniques/TheBeginning/TheBeginningCard.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Card/Spawners/SpawnerCard.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Card/Spawners/Members/BaseMemberCard.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Card/Consumers/Fallouts/Moments/Opportunities/BaseOpportunityCard.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Card/Consumers/Fallouts/Moments/Threats/BaseThreatCard.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Card/Consumers/Fallouts/Moments/Strengths/BaseStrengthCard.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Card/Consumers/Fallouts/Moments/Weaknesses/BaseWeaknessCard.tscn" type="PackedScene" id=12]
+
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 3 )

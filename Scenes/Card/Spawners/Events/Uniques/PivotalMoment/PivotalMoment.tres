@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Originals/Images/CardFront_Diamond.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Card/Spawners/SpawnerCardSettingsResource.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 2 )
+front_texture = ExtResource( 1 )
+title = "Pivotal Moment"
+description = "The cause is building up to something. A point not far in the future. Be ready!"
+counting_from_start = false
+counting_to_end = true
+from_start = 0
+to_end = 128
+spawn_timers = [  ]

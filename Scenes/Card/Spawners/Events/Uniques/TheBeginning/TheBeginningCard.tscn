@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Card/Spawners/Events/DefaultEventCard.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Card/Spawners/Events/Uniques/TheBeginning.tres" type="Resource" id=2]
+[ext_resource path="res://Scenes/Card/Spawners/Events/Uniques/TheBeginning/TheBeginning.tres" type="Resource" id=2]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
