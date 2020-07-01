@@ -2,7 +2,7 @@ tool
 extends AbstractCard
 
 
-class_name CardNew
+class_name Card
 
 signal mouse_over
 signal focus

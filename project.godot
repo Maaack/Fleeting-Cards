@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Card/AbstractCard.gd"
 }, {
-"base": "StackableCardNew",
+"base": "StackableCard",
 "class": "AllianceCard",
 "language": "GDScript",
 "path": "res://Scenes/Card/Alliance/AllianceCard.gd"
@@ -24,22 +24,22 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Card/Alliance/AllianceCardSettingsResource.gd"
 }, {
+"base": "AbstractCard",
+"class": "Card",
+"language": "GDScript",
+"path": "res://Scenes/Card/Card.gd"
+}, {
 "base": "Resource",
 "class": "CardCount",
 "language": "GDScript",
 "path": "res://Scenes/Card/CardPanel/CardRequirement/CardCountResource.gd"
-}, {
-"base": "AbstractCard",
-"class": "CardNew",
-"language": "GDScript",
-"path": "res://Scenes/Card/CardNew.gd"
 }, {
 "base": "Resource",
 "class": "CardSettings",
 "language": "GDScript",
 "path": "res://Scenes/Card/CardSettingsResource.gd"
 }, {
-"base": "StackableCardNew",
+"base": "StackableCard",
 "class": "ConsumerCard",
 "language": "GDScript",
 "path": "res://Scenes/Card/Consumers/ConsumerCard.gd"
@@ -69,7 +69,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Card/Consumers/Fallouts/Milestones/MilestoneCard.gd"
 }, {
-"base": "StackableCardNew",
+"base": "StackableCard",
 "class": "OutcomeCard",
 "language": "GDScript",
 "path": "res://Scenes/Card/Outcomes/OutcomeCard.gd"
@@ -94,7 +94,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Card/CardPanel/CardRequirement/SpawnTimerResource.gd"
 }, {
-"base": "StackableCardNew",
+"base": "StackableCard",
 "class": "SpawnerCard",
 "language": "GDScript",
 "path": "res://Scenes/Card/Spawners/SpawnerCard.gd"
@@ -104,10 +104,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Card/Spawners/SpawnerCardSettingsResource.gd"
 }, {
-"base": "CardNew",
-"class": "StackableCardNew",
+"base": "Card",
+"class": "StackableCard",
 "language": "GDScript",
-"path": "res://Scenes/Card/StackableCardNew.gd"
+"path": "res://Scenes/Card/StackableCard.gd"
 }, {
 "base": "Spatial",
 "class": "Table",
@@ -118,8 +118,8 @@ _global_script_class_icons={
 "AbstractCard": "",
 "AllianceCard": "",
 "AllianceCardSettings": "",
+"Card": "",
 "CardCount": "",
-"CardNew": "",
 "CardSettings": "",
 "ConsumerCard": "",
 "ConsumerCardSettings": "",
@@ -134,7 +134,7 @@ _global_script_class_icons={
 "SpawnTimer": "",
 "SpawnerCard": "",
 "SpawnerCardSettings": "",
-"StackableCardNew": "",
+"StackableCard": "",
 "Table": ""
 }
 

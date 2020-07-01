@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/Card/BaseCardNew.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Card/BaseCard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Card/Consumers/ConsumerCard.gd" type="Script" id=2]
+
 
 [node name="ConsumerCard" instance=ExtResource( 1 )]
 script = ExtResource( 2 )

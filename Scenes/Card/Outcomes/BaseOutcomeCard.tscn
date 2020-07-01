@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/Card/BaseCardNew.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Card/BaseCard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Card/Outcomes/OutcomeCard.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Card/Outcomes/DefaultOutcome.tres" type="Resource" id=3]
+
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")

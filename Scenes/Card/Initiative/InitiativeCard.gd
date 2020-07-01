@@ -1,5 +1,5 @@
 tool
-extends StackableCardNew
+extends StackableCard
 
 
 signal spawn_card

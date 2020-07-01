@@ -1,8 +1,8 @@
 tool
-extends CardNew
+extends Card
 
 
-class_name StackableCardNew
+class_name StackableCard
 
 var card_above : AbstractCard
 var card_below : AbstractCard
