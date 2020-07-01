@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 front_texture = ExtResource( 2 )
-title = "Weakness (A)"
+title = "Weakness (S)"
 description = "Addressed Weakness.
 We faced our problems directly. They may return, but they won't hold us back."
 counting_from_start = false

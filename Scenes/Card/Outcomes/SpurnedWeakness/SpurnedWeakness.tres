@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource( 1 )
 front_texture = ExtResource( 2 )
-title = "Weakness (S)"
+title = "Weakness (F)"
 description = "A Spurned Weakness.
-Ignoring the problem didn't make it go away. It's become more insiduous."
+Ignoring the problem just made it more insidious."
 counting_from_start = false
 counting_to_end = true
 from_start = 0

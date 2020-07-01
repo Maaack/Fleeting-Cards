@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 front_texture = ExtResource( 2 )
-title = "Strength (R)"
+title = "Strength (S)"
 description = "A Realized Strength.
 We are more than the sum of our parts."
 counting_from_start = false

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 front_texture = ExtResource( 2 )
-title = "Threat (N)"
+title = "Threat (S)"
 description = "A Neutralized Threat. We've assessed and dealt with the situation. Time to move on."
 counting_from_start = false
 counting_to_end = true

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 front_texture = ExtResource( 2 )
-title = "Opportunity (M)"
+title = "Opportunity (F)"
 description = "A Missed Opportunity. A reminder of what could have been."
 counting_from_start = false
 counting_to_end = true

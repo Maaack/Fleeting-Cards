@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource( 1 )
 front_texture = ExtResource( 2 )
-title = "Strength (A)"
+title = "Strength (F)"
 description = "An Atrophied Strength.
-This could have been something. Now it serves as a reminder of wasted potential."
+This could have been something other than wasted potential."
 counting_from_start = false
 counting_to_end = false
 from_start = 0
