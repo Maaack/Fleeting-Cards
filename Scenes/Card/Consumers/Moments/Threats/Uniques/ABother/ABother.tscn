@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://Scenes/Card/Consumers/Moments/Threats/DefaultThreatCard.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Card/Consumers/Moments/Threats/Uniques/ABother/ABother.tres" type="Resource" id=2]
-
-[node name="ThreatCard" instance=ExtResource( 1 )]
-init_card_settings = ExtResource( 2 )

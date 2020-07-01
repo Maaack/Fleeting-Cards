@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Card/Consumers/Fallouts/FalloutCardSettingsResource.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Originals/Images/CardFront_Triangle.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Card/Consumers/Modifiers/Goal/SeizedOpportunity_4.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Card/Spawners/Members/BaseMemberCard.tscn" type="PackedScene" id=4]
+
+[resource]
+script = ExtResource( 1 )
+front_texture = ExtResource( 2 )
+title = "First Ally"
+description = "The cause requires we unite and work together. Seize every opportunity you can to get another member."
+counting_from_start = false
+counting_to_end = true
+from_start = 0
+to_end = 64
+consumes = ExtResource( 3 )
+rewards = [ ExtResource( 4 ) ]
+penalties = [  ]

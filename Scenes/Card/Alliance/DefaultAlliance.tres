@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Card/Alliance/AllianceCardSettingsResource.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Originals/Images/CardFront_Hands.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+front_texture = ExtResource( 2 )
+title = "Alliance"
+description = "An organization of many. Multiple members create strengths and weaknesses."
+counting_from_start = true
+counting_to_end = false
+from_start = 0
+to_end = 0
+strength_spawn_timers = [  ]
+weakness_spawn_timers = [  ]

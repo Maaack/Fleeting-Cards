@@ -18,7 +18,7 @@ albedo_texture = SubResource( 1 )
 card_title = "The Beginning"
 card_description = "...of the End.
 A truth shined bright enough for the blind to see. It brings threats and opportunities."
-init_spawn_timers = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ]
+init_spawn_timers = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), null ]
 
 [node name="FrontTextMesh" parent="." index="6"]
 material/0 = SubResource( 2 )

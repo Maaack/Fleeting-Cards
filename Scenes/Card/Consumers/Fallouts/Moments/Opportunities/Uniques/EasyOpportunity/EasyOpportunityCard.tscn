@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Card/Consumers/Fallouts/FalloutCard.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Card/Consumers/Fallouts/Moments/Opportunities/BaseOpportunityCard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Card/Consumers/Fallouts/Moments/Opportunities/Uniques/EasyOpportunity/EasyOpportunity.tres" type="Resource" id=3]
+
+[sub_resource type="QuadMesh" id=4]
+size = Vector2( 1.753, 2.55 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="SpatialMaterial" id=3]
+resource_local_to_scene = true
+flags_transparent = true
+albedo_texture = SubResource( 2 )
+
+[node name="OpportunityCard" groups=[
+"CARD",
+] instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+init_card_settings = ExtResource( 3 )
+
+[node name="FrontTextMesh" parent="." index="6"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0.02, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 3 )
+[connection signal="input_event" from="KinematicBody" to="." method="_on_KinematicBody_input_event"]
+[connection signal="mouse_entered" from="KinematicBody" to="." method="_on_KinematicBody_mouse_entered"]
+[connection signal="mouse_exited" from="KinematicBody" to="." method="_on_KinematicBody_mouse_exited"]

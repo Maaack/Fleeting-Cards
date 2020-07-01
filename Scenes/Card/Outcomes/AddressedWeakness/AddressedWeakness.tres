@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Card/Outcomes/OutcomeCardSettingsResource.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Originals/Images/CardFront_Drop_Down.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+front_texture = ExtResource( 2 )
+title = "Weakness (A)"
+description = "An Addressed Weakness. A successful outcome to a Weakness."
+counting_from_start = false
+counting_to_end = true
+from_start = 0
+to_end = 16

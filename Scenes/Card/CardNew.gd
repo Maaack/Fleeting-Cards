@@ -34,8 +34,10 @@ var initial_rotation:Vector3
 
 
 func _ready():
-	initial_rotation = rotation
 	_update_card()
+
+func init_turn():
+	initial_rotation = rotation
 
 func set_init_card_settings(value:CardSettings):
 	init_card_settings = value
@@ -153,13 +155,14 @@ func _drop():
 	body_node.input_ray_pickable = true
 
 func move(new_translation:Vector3):
-	if tween_node.is_active():
-		tween_node.seek(_get_tween_time())
-	if translation.distance_to(new_translation) > 0.5:
-		tween_node.interpolate_property(self, "translation", translation, new_translation, _get_tween_time())
-		tween_node.start()
-	else:
-		translation = new_translation
+	if is_instance_valid(tween_node):
+		if tween_node.is_active():
+			tween_node.seek(_get_tween_time())
+		if translation.distance_to(new_translation) > 0.5:
+			tween_node.interpolate_property(self, "translation", translation, new_translation, _get_tween_time())
+			tween_node.start()
+			return
+	translation = new_translation
 
 func _get_tween_time():
 	return 0.1
@@ -199,6 +202,9 @@ func burn():
 		animation_node.play("Burn")
 		yield(animation_node, "animation_finished")
 	queue_free()
+
+func is_burned():
+	return burned
 
 func is_in_groups(group_names:Array):
 	for group_name in group_names:

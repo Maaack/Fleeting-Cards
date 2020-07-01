@@ -53,7 +53,8 @@ func move(new_translation:Vector3):
 
 func get_over_card_translation(click_position:Vector3=Vector3()):
 	if is_instance_valid(card_above) and card_above is AbstractCard:
-		return card_above.get_over_card_translation(click_position)
+		if not card_above.is_burned():
+			return card_above.get_over_card_translation(click_position)
 	return .get_over_card_translation(click_position)
 
 func burn():

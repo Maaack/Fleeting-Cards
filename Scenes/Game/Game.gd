@@ -28,10 +28,14 @@ func _input(event):
 func _ready():
 	for child in get_children():
 		if child is AbstractCard:
-			_connect_card_signals(child)
+			_init_card_turn(child)
 
 func _post_card_instancing(card_instance):
+	_init_card_turn(card_instance)
+
+func _init_card_turn(card_instance):
 	_connect_card_signals(card_instance)
+	card_instance.init_turn()
 
 func _connect_card_signals(card_instance):
 	card_instance.connect("drag", self, "_on_Card_drag")

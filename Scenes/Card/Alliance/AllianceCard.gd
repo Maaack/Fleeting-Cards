@@ -1,13 +1,13 @@
 tool
-extends StackableCard
+extends StackableCardNew
 
 
 class_name AllianceCard
 
 signal spawn_card
 
-export(Array, Resource) var init_strength_spawn_timers
-export(Array, Resource) var init_weakness_spawn_timers
+const MEMBER = 'MEMBER'
+const ALLIANCE = 'ALLIANCE'
 
 var strength_spawn_timers : Array = []
 var weakness_spawn_timers : Array = []
@@ -21,14 +21,16 @@ func _ready():
 	_update_weakness_spawn_timers()
 
 func _update_strength_spawn_timers():
-	for init_strength_spawn_timer in init_strength_spawn_timers:
-		var strength_spawn_timer = init_strength_spawn_timer.duplicate()
-		strength_spawn_timers.append(strength_spawn_timer)
+	if card_settings is AllianceCardSettings:
+		for init_strength_spawn_timer in card_settings.strength_spawn_timers:
+			var strength_spawn_timer = init_strength_spawn_timer.duplicate()
+			strength_spawn_timers.append(strength_spawn_timer)
 
 func _update_weakness_spawn_timers():
-	for init_weakness_spawn_timer in init_weakness_spawn_timers:
-		var weakness_spawn_timer = init_weakness_spawn_timer.duplicate()
-		weakness_spawn_timers.append(weakness_spawn_timer)
+	if card_settings is AllianceCardSettings:
+		for init_weakness_spawn_timer in card_settings.weakness_spawn_timers:
+			var weakness_spawn_timer = init_weakness_spawn_timer.duplicate()
+			weakness_spawn_timers.append(weakness_spawn_timer)
 
 func advance_turn():
 	.advance_turn()
@@ -39,7 +41,7 @@ func get_all_members():
 	var members : Array = []
 	var parent : Node = get_parent()
 	for child in parent.get_children():
-		if child is MemberCard:
+		if child.is_in_group(MEMBER):
 			members.append(child)
 	return members
 

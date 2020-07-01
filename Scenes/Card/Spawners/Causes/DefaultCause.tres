@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Card/Spawners/SpawnerCardSettingsResource.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Originals/Images/CardFront_Square.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+front_texture = ExtResource( 2 )
+title = "Cause"
+description = "Generates goals and obstacles."
+counting_from_start = true
+counting_to_end = true
+from_start = 0
+to_end = 128
+spawn_timers = [  ]
