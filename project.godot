@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Card/Alliance/AllianceCardSettingsResource.gd"
 }, {
-"base": "AbstractCard",
-"class": "Card",
-"language": "GDScript",
-"path": "res://Scenes/Card/Card.gd"
-}, {
 "base": "Resource",
 "class": "CardCount",
 "language": "GDScript",
@@ -74,16 +69,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Card/Consumers/Fallouts/Milestones/MilestoneCard.gd"
 }, {
-"base": "ConsumerCard",
-"class": "ModifierCard",
-"language": "GDScript",
-"path": "res://Scenes/Card/Consumers/Modifiers/ModifierCard.gd"
-}, {
-"base": "StackableCard",
-"class": "MomentCard",
-"language": "GDScript",
-"path": "res://Scenes/Card/Moments/MomentCard.gd"
-}, {
 "base": "StackableCardNew",
 "class": "OutcomeCard",
 "language": "GDScript",
@@ -119,11 +104,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Card/Spawners/SpawnerCardSettingsResource.gd"
 }, {
-"base": "Card",
-"class": "StackableCard",
-"language": "GDScript",
-"path": "res://Scenes/Card/StackableCard.gd"
-}, {
 "base": "CardNew",
 "class": "StackableCardNew",
 "language": "GDScript",
@@ -138,7 +118,6 @@ _global_script_class_icons={
 "AbstractCard": "",
 "AllianceCard": "",
 "AllianceCardSettings": "",
-"Card": "",
 "CardCount": "",
 "CardNew": "",
 "CardSettings": "",
@@ -148,8 +127,6 @@ _global_script_class_icons={
 "FalloutCardSettings": "",
 "MemberCard": "",
 "MilestoneCard": "",
-"ModifierCard": "",
-"MomentCard": "",
 "OutcomeCard": "",
 "OutcomeCardSettings": "",
 "Requirement": "",
@@ -157,7 +134,6 @@ _global_script_class_icons={
 "SpawnTimer": "",
 "SpawnerCard": "",
 "SpawnerCardSettings": "",
-"StackableCard": "",
 "StackableCardNew": "",
 "Table": ""
 }
