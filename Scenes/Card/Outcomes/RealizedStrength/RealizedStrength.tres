@@ -1,12 +1,15 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Card/Outcomes/OutcomeCardSettingsResource.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Originals/Images/CardFront_Drop_Up.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
-title = ""
-description = ""
+front_texture = ExtResource( 2 )
+title = "Strength (R)"
+description = "A Realized Strength.
+We are more than the sum of our parts."
 counting_from_start = false
-counting_to_end = false
+counting_to_end = true
 from_start = 0
-to_end = 0
+to_end = 16

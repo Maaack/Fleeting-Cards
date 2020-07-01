@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Originals/Images/CardFront_Drop_Up.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Card/Consumers/Fallouts/FalloutCardSettingsResource.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Card/Consumers/Initiative_8.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Card/Outcomes/RealizedStrength/RealizedStrengthCard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Card/Outcomes/AtrophiedStrength/AtrophiedStrengthCard.tscn" type="PackedScene" id=5]
+
+[resource]
+script = ExtResource( 2 )
+front_texture = ExtResource( 1 )
+title = "Strength"
+description = "United we stand.
+A benefit to working together. Takes initiative."
+counting_from_start = false
+counting_to_end = true
+from_start = 0
+to_end = 8
+consumes = ExtResource( 3 )
+rewards = [ ExtResource( 4 ) ]
+penalties = [ ExtResource( 5 ) ]

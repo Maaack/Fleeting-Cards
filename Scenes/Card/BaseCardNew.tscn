@@ -51,6 +51,9 @@ size = Vector3( 1.82, 0.085, 2.62 )
 "CARD",
 ]]
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Stack" type="Spatial" parent="."]
 

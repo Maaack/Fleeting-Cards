@@ -1,7 +1,9 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Card/Alliance/AllianceCardSettingsResource.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Originals/Images/CardFront_Hands.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnStrength.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnWeakness.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
@@ -12,5 +14,5 @@ counting_from_start = true
 counting_to_end = false
 from_start = 0
 to_end = 0
-strength_spawn_timers = [  ]
-weakness_spawn_timers = [  ]
+strength_spawn_timers = [ ExtResource( 3 ) ]
+weakness_spawn_timers = [ ExtResource( 4 ) ]

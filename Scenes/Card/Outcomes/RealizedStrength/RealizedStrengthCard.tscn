@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/Card/Outcomes/NeutralizedThreat/NeutralizedThreat.tres" type="Resource" id=1]
+[ext_resource path="res://Scenes/Card/Outcomes/RealizedStrength/RealizedStrength.tres" type="Resource" id=1]
 [ext_resource path="res://Scenes/Card/Outcomes/BaseOutcomeCard.tscn" type="PackedScene" id=2]
 
 
@@ -14,8 +14,8 @@ albedo_texture = SubResource( 1 )
 
 [node name="OutcomeCard" groups=[
 "MOMENT_OUTCOME",
+"STRENGTH",
 "SUCCESSFUL_OUTCOME",
-"THREAT",
 ] instance=ExtResource( 2 )]
 init_card_settings = ExtResource( 1 )
 

@@ -8,7 +8,7 @@
 script = ExtResource( 1 )
 front_texture = ExtResource( 2 )
 title = "You"
-description = "You've always played a part, now its your turn to play a better part. Generate initiative every turn."
+description = "You've always played a part, now it's your turn to play a better part. Generate initiative every turn."
 counting_from_start = true
 counting_to_end = false
 from_start = 0
