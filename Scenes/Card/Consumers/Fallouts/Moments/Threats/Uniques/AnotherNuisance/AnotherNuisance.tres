@@ -4,17 +4,17 @@
 [ext_resource path="res://Scenes/Card/Consumers/Fallouts/FalloutCardSettingsResource.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Card/Outcomes/NeutralizedThreat/NeutralizedThreatCard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Card/Outcomes/EscapedThreat/EscapedThreatCard.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Card/Consumers/Initiative_4.tres" type="Resource" id=5]
+[ext_resource path="res://Scenes/Card/Consumers/Initiative_8.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 2 )
 front_texture = ExtResource( 1 )
-title = "A Petty Threat"
-description = "Your motivation and focus is under attack from the onset. Takes initiative to combat."
+title = "Another Nuisance"
+description = "This threat will take some more work, but gives more time. It will escape us if not neutralized."
 counting_from_start = false
 counting_to_end = true
 from_start = 0
-to_end = 8
+to_end = 32
 consumes = ExtResource( 5 )
 rewards = [ ExtResource( 3 ) ]
 penalties = [ ExtResource( 4 ) ]

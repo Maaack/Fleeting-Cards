@@ -26,6 +26,7 @@ export(Resource) var init_card_settings : Resource setget set_init_card_settings
 
 var card_settings : CardSettings
 var empty_card_front_texture = preload("res://Assets/Originals/Images/CardFront_Empty.png")
+var initialized: bool = false
 var burned: bool = false 
 var focused: bool = false
 var dragging: bool = false
@@ -37,6 +38,7 @@ func _ready():
 	_update_card()
 
 func init_turn():
+	initialized = true
 	initial_rotation = rotation
 
 func set_init_card_settings(value:CardSettings):
@@ -205,6 +207,9 @@ func burn():
 
 func is_burned():
 	return burned
+
+func is_active():
+	return initialized and not burned
 
 func is_in_groups(group_names:Array):
 	for group_name in group_names:

@@ -13,14 +13,17 @@ onready var consumer_animation_node = $Viewport/CardFrontContents/Consumes/Anima
 var consumes : CardCount
 
 func _ready():
-	_update_consumes_panel()
+	_update_consumes()
 
 func _update_consumes_panel():
+	consumer_node.show()
+	consumer_node.add_card_count(consumes)
+
+func _update_consumes():
 	if card_settings is ConsumerCardSettings:
 		if card_settings.consumes != null:
 			consumes = card_settings.consumes.duplicate()
-			consumer_node.show()
-			consumer_node.add_card_count(consumes)
+			_update_consumes_panel()
 
 func focus():
 	consumer_animation_node.play(SLIDE_DOWN_ANIMATION)
@@ -48,7 +51,7 @@ func hide_requirements():
 		_hide_requirements()
 
 func stack_card(to_stack:AbstractCard):
-	if to_stack.is_in_groups(consumes.groups):
+	if to_stack.is_in_groups(consumes.groups) and not to_stack.is_burned():
 		_consume_card(to_stack)
 		return get_over_card_translation()
 	return .stack_card(to_stack)

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Card/Spawners/SpawnerCardSettingsResource.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Originals/Images/CardFront_Person.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnInitiative.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnInitiative_1.tres" type="Resource" id=3]
 
 [resource]
 script = ExtResource( 1 )
@@ -12,5 +12,5 @@ description = "A motivated individual part of your alliance. Creates initiative 
 counting_from_start = true
 counting_to_end = true
 from_start = 0
-to_end = 128
+to_end = 32
 spawn_timers = [ ExtResource( 3 ) ]

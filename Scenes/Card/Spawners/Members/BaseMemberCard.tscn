@@ -4,7 +4,6 @@
 [ext_resource path="res://Scenes/Card/BaseCard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Card/Spawners/Members/DefaultMember.tres" type="Resource" id=3]
 
-
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
 

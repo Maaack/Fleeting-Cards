@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Card/Consumers/Fallouts/FalloutCardSettingsResource.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Originals/Images/CardFront_Triangle.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Card/Consumers/Fallouts/Milestones/Goals/SeizedOpportunity_4.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Card/Consumers/Fallouts/Milestones/Goals/SeizedOpportunity_2.tres" type="Resource" id=3]
 [ext_resource path="res://Scenes/Card/Spawners/Members/BaseMemberCard.tscn" type="PackedScene" id=4]
 
 [resource]
@@ -13,7 +13,7 @@ description = "The cause requires we unite and work together. Seize every opport
 counting_from_start = false
 counting_to_end = true
 from_start = 0
-to_end = 64
+to_end = 32
 consumes = ExtResource( 3 )
 rewards = [ ExtResource( 4 ) ]
 penalties = [  ]

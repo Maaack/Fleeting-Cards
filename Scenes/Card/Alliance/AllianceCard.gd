@@ -59,9 +59,11 @@ func _update_timers():
 func _spawn_from_array(timer:int, spawn_timers:Array):
 	for spawn_timer in spawn_timers:
 		if spawn_timer is SpawnTimer:
-			if timer % spawn_timer.card_spawn_delay == 0:
+			if timer >= spawn_timer.card_spawn_delay:
+				timer -= spawn_timer.card_spawn_delay
 				var card_instance = spawn_timer.card_scene.instance()
 				emit_signal("spawn_card", card_instance, stack_card(card_instance))
+	return timer
 
 func _can_spawn_strength():
 	return strength_increment > 0
@@ -71,6 +73,6 @@ func _can_spawn_weakness():
 
 func _spawn_modifications():
 	if _can_spawn_strength():
-		_spawn_from_array(strength_timer, strength_spawn_timers)
+		strength_timer = _spawn_from_array(strength_timer, strength_spawn_timers)
 	if _can_spawn_weakness():
-		_spawn_from_array(weakness_timer, weakness_spawn_timers)
+		weakness_timer = _spawn_from_array(weakness_timer, weakness_spawn_timers)

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/CardCountResource.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Originals/Images/CardIcons_Square.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+groups = [ "THREAT", "MOMENT_OUTCOME", "FAILED_OUTCOME" ]
+icon = ExtResource( 2 )
+quantity = 4

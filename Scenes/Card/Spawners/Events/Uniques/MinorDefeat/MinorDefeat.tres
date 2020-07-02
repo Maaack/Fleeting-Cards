@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnOpportunity_16.tres" type="Resource" id=1]
+[ext_resource path="res://Assets/Originals/Images/CardFront_Diamond.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Card/Spawners/SpawnerCardSettingsResource.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnThreat_First.tres" type="Resource" id=4]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnThreat_8.tres" type="Resource" id=5]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnOpportunity_First.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 3 )
+front_texture = ExtResource( 2 )
+title = "Minor Defeat"
+description = "We're particularly vulnerable after this hit. It will bring more threats than opportunities."
+counting_from_start = true
+counting_to_end = false
+from_start = 0
+to_end = 0
+spawn_timers = [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Table/Table.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Card/Spawners/Members/Uniques/YouThePlayer.tscn" type="PackedScene" id=2]
@@ -12,7 +12,8 @@
 [ext_resource path="res://Scenes/Card/Consumers/Fallouts/Moments/Threats/BaseThreatCard.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Card/Consumers/Fallouts/Moments/Strengths/BaseStrengthCard.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Card/Consumers/Fallouts/Moments/Weaknesses/BaseWeaknessCard.tscn" type="PackedScene" id=12]
-
+[ext_resource path="res://Scenes/Card/Consumers/Fallouts/Milestones/Goals/Randoms/RandomGoalCard.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Card/Consumers/Fallouts/Milestones/Obstacles/Randoms/RandomObstacleCard.tscn" type="PackedScene" id=15]
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 3 )
@@ -32,9 +33,6 @@ anims/Zoom = ExtResource( 4 )
 script = ExtResource( 5 )
 
 [node name="Table" parent="." instance=ExtResource( 1 )]
-
-[node name="EventCard" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0 )
 
 [node name="MemberCard" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0 )
@@ -60,4 +58,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3.5 )
 
 [node name="MemberCard4" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3.5 )
+
+[node name="EventCard2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0 )
+
+[node name="GoalCard" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3.5 )
+
+[node name="ObstacleCard" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 7 )
 [connection signal="mouse_over" from="Table" to="." method="_on_Table_mouse_over"]

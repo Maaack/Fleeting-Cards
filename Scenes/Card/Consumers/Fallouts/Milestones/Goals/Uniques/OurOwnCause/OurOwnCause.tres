@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Card/Consumers/Fallouts/FalloutCardSettingsResource.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Originals/Images/CardFront_Triangle.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Card/Spawners/Causes/BaseCauseCard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Card/Consumers/Fallouts/Milestones/Goals/RealizedStrength_2.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+front_texture = ExtResource( 2 )
+title = "Our Own Cause"
+description = "Our alliance comes with unique members and perspectives. Realize our collective strengths to overcome greater odds."
+counting_from_start = false
+counting_to_end = true
+from_start = 0
+to_end = 32
+consumes = ExtResource( 4 )
+rewards = [ ExtResource( 3 ) ]
+penalties = [  ]

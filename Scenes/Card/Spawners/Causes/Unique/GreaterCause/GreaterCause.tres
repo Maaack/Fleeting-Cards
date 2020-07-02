@@ -1,9 +1,16 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Card/Spawners/SpawnerCardSettingsResource.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Originals/Images/CardFront_Square.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnFirstGoal.tres" type="Resource" id=3]
-[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnPivotalMoment.tres" type="Resource" id=4]
+[ext_resource path="res://Scenes/Card/Spawners/Causes/Unique/GreaterCause/SpawnFirstGoal.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Card/Spawners/Causes/Unique/GreaterCause/SpawnPivotalMoment.tres" type="Resource" id=4]
+[ext_resource path="res://Scenes/Card/Spawners/Causes/Unique/GreaterCause/SpawnFirstObstacle.tres" type="Resource" id=5]
+[ext_resource path="res://Scenes/Card/Spawners/Causes/Unique/GreaterCause/SpawnSecondGoal.tres" type="Resource" id=6]
+[ext_resource path="res://Scenes/Card/Spawners/Causes/Unique/GreaterCause/SpawnSecondObstacle.tres" type="Resource" id=7]
+[ext_resource path="res://Scenes/Card/Spawners/Causes/Unique/GreaterCause/SpawnThirdGoal.tres" type="Resource" id=8]
+[ext_resource path="res://Scenes/Card/Spawners/Causes/Unique/GreaterCause/SpawnThirdObstacle.tres" type="Resource" id=9]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnRandomObstacle_32.tres" type="Resource" id=10]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnRandomGoal_32.tres" type="Resource" id=11]
 
 [resource]
 script = ExtResource( 1 )
@@ -14,4 +21,4 @@ counting_from_start = true
 counting_to_end = false
 from_start = 0
 to_end = 0
-spawn_timers = [ ExtResource( 3 ), ExtResource( 4 ) ]
+spawn_timers = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ) ]

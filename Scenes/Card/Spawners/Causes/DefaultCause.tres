@@ -1,7 +1,11 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Card/Spawners/SpawnerCardSettingsResource.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Originals/Images/CardFront_Square.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnRandomGoal_First.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnRandomObstacle_First.tres" type="Resource" id=4]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnRandomGoal_16.tres" type="Resource" id=5]
+[ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnRandomObstacle_16.tres" type="Resource" id=6]
 
 [resource]
 script = ExtResource( 1 )
@@ -12,4 +16,4 @@ counting_from_start = true
 counting_to_end = true
 from_start = 0
 to_end = 128
-spawn_timers = [  ]
+spawn_timers = [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ) ]

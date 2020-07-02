@@ -35,3 +35,6 @@ func is_burned():
 
 func is_in_groups(group_names:Array):
 	pass
+
+func is_active():
+	pass

@@ -4,7 +4,6 @@
 [ext_resource path="res://Scenes/Card/Alliance/AllianceCard.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Card/Alliance/DefaultAlliance.tres" type="Resource" id=3]
 
-
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
 
