@@ -29,4 +29,6 @@ margin_right = 512.0
 margin_bottom = 76.0
 
 [node name="Hourglass" parent="CenterBottom/CenterPoint" instance=ExtResource( 1 )]
+[connection signal="mouse_entered_button" from="CenterBottom/CenterPoint/Hourglass" to="." method="_on_Hourglass_mouse_entered_button"]
+[connection signal="mouse_exited_button" from="CenterBottom/CenterPoint/Hourglass" to="." method="_on_Hourglass_mouse_exited_button"]
 [connection signal="next_turn" from="CenterBottom/CenterPoint/Hourglass" to="." method="_on_Hourglass_next_turn"]

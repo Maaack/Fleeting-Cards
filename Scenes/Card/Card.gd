@@ -112,8 +112,6 @@ func _on_KinematicBody_input_event(camera, event, click_position, click_normal, 
 		if event.button_index == 1:
 			if event.pressed:
 				drag()
-				if event.doubleclick:
-					flip()
 			else: 
 				drop()
 		if event.button_index == 2:
@@ -139,6 +137,12 @@ func _unfocus():
 	if not is_instance_valid($OutlineMesh):
 		return
 	$OutlineMesh.hide()
+
+func highlight_interaction():
+	$HighlightInteractionMesh.show()
+
+func unhighlight_interaction():
+	$HighlightInteractionMesh.hide()
 
 func drag():
 	_drag()

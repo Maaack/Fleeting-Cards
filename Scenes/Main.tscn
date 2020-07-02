@@ -42,4 +42,6 @@ __meta__ = {
 }
 
 [node name="HUD" parent="HUDContainer" instance=ExtResource( 2 )]
+[connection signal="focus_hourglass" from="HUDContainer/HUD" to="." method="_on_HUD_focus_hourglass"]
 [connection signal="next_turn" from="HUDContainer/HUD" to="." method="_on_HUD_next_turn"]
+[connection signal="unfocus_hourglass" from="HUDContainer/HUD" to="." method="_on_HUD_unfocus_hourglass"]

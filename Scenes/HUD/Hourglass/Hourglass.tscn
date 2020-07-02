@@ -42,3 +42,5 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Flip = SubResource( 1 )
 [connection signal="button_down" from="TextureButton" to="." method="_on_TextureButton_button_down"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_TextureButton_mouse_exited"]

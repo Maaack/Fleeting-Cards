@@ -15,5 +15,5 @@ counting_to_end = true
 from_start = 0
 to_end = 32
 consumes = ExtResource( 3 )
-rewards = [  ]
-penalties = [ ExtResource( 4 ) ]
+rewards = [ ExtResource( 4 ) ]
+penalties = [  ]

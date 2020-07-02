@@ -9,7 +9,7 @@
 script = ExtResource( 1 )
 front_texture = ExtResource( 2 )
 title = "Organize Efforts"
-description = "We have enough momentum for making changes in our community. We must neutralize the threats to our message."
+description = "We have momentum for making changes in our community. We must neutralize threats to progress."
 counting_from_start = false
 counting_to_end = true
 from_start = 0

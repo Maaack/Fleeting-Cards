@@ -3,9 +3,8 @@
 [ext_resource path="res://Scenes/Card/StackableCard.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Originals/Models/glTF Separate/Card.gltf" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Card/Text/CardTextMaterial.tres" type="Material" id=3]
-[ext_resource path="res://Scenes/Card/OutlineMaterial.tres" type="Material" id=4]
+[ext_resource path="res://Scenes/Card/CardOutlineBoxMesh.tres" type="CubeMesh" id=4]
 [ext_resource path="res://Scenes/Card/Text/CardFrontContentsNew.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Card/CardOutlineMesh.tres" type="ArrayMesh" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1.76, 0.025, 2.56 )
@@ -43,8 +42,14 @@ extents = Vector3( 0.88, 0.03, 1.28 )
 [sub_resource type="QuadMesh" id=4]
 size = Vector2( 1.753, 2.55 )
 
-[sub_resource type="CubeMesh" id=5]
-material = ExtResource( 4 )
+[sub_resource type="SpatialMaterial" id=5]
+flags_unshaded = true
+params_cull_mode = 1
+albedo_color = Color( 1, 0.960784, 0.34902, 0.627451 )
+
+[sub_resource type="CubeMesh" id=6]
+resource_local_to_scene = true
+material = SubResource( 5 )
 size = Vector3( 1.82, 0.085, 2.62 )
 
 [node name="BaseCard" type="Spatial" groups=[
@@ -71,11 +76,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.066, 0 )
 
 [node name="Utils" type="Spatial" parent="."]
 
-[node name="OutlineMeshOld" type="MeshInstance" parent="Utils"]
-visible = false
-mesh = ExtResource( 6 )
-material/0 = null
-
 [node name="CardMeshMatch" type="MeshInstance" parent="Utils"]
 visible = false
 mesh = SubResource( 1 )
@@ -101,7 +101,12 @@ material/0 = ExtResource( 3 )
 
 [node name="OutlineMesh" type="MeshInstance" parent="."]
 visible = false
-mesh = SubResource( 5 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="HighlightInteractionMesh" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 6 )
 material/0 = null
 
 [node name="Viewport" type="Viewport" parent="."]

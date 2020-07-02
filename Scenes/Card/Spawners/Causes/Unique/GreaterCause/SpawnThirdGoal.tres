@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource( 1 )
-card_spawn_delay = 17
+card_spawn_delay = 21
 spawn_timer_setting = 1
 card_scene = ExtResource( 2 )
