@@ -1,18 +1,44 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Card/Outcomes/BaseOutcomeCard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Card/Outcomes/SpurnedWeakness/SpurnedWeakness.tres" type="Resource" id=2]
+[ext_resource path="res://Scenes/Card/OutlineMaterial.tres" type="Material" id=3]
 
-[sub_resource type="ViewportTexture" id=1]
+[sub_resource type="ViewportTexture" id=5]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=6]
 resource_local_to_scene = true
 flags_transparent = true
-albedo_texture = SubResource( 1 )
+albedo_texture = SubResource( 5 )
 
-[node name="OutcomeCard" instance=ExtResource( 1 )]
+[sub_resource type="CubeMesh" id=7]
+resource_local_to_scene = true
+material = ExtResource( 3 )
+size = Vector3( 1.82, 0.085, 2.62 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_unshaded = true
+params_cull_mode = 1
+albedo_color = Color( 1, 0.960784, 0.34902, 0.627451 )
+
+[sub_resource type="CubeMesh" id=8]
+resource_local_to_scene = true
+material = SubResource( 4 )
+size = Vector3( 1.82, 0.085, 2.62 )
+
+[node name="OutcomeCard" groups=[
+"FAILED_OUTCOME",
+"MOMENT_OUTCOME",
+"WEAKNESS",
+] instance=ExtResource( 1 )]
 init_card_settings = ExtResource( 2 )
 
 [node name="FrontTextMesh" parent="." index="6"]
-material/0 = SubResource( 2 )
+material/0 = SubResource( 6 )
+
+[node name="OutlineMesh" parent="." index="7"]
+mesh = SubResource( 7 )
+
+[node name="HighlightInteractionMesh" parent="." index="8"]
+mesh = SubResource( 8 )
