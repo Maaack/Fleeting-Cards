@@ -27,7 +27,7 @@ onready var stack_bottom_position = $Stack/StackBottom
 export(Resource) var init_card_settings : Resource setget set_init_card_settings
 
 var card_settings : CardSettings
-var empty_card_front_texture = preload("res://Assets/Originals/Images/CardFront_Empty.png")
+var empty_card_front_texture = preload("res://Assets/Originals/Images/CardFronts/CardFront_Empty.png")
 var initialized: bool = false
 var burned: bool = false 
 var focused: bool = false
@@ -203,6 +203,9 @@ func advance_turn():
 	card_settings.to_end -= 1
 	_update_card_from_start()
 	_update_card_to_end()
+	if card_settings.counting_to_end and card_settings.to_end <= 0:
+		if is_active():
+			count_reached_end()
 
 func get_over_card_relative_translation(_click_position:Vector3):
 	if not is_instance_valid($Stack/StackBottom):
@@ -238,3 +241,5 @@ func spawn_card(card_scene:PackedScene):
 	emit_signal("spawn_card", card_instance, get_over_card_translation())
 	return card_instance
 
+func count_reached_end():
+	burn()

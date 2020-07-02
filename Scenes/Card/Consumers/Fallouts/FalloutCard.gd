@@ -23,11 +23,6 @@ func _update_penalties():
 			var penalty = init_penalty.duplicate()
 			penalties.append(penalty)
 
-func advance_turn():
-	var advance_return = .advance_turn()
-	active_penalty()
-	return advance_return
-
 func check_requirements():
 	if burned:
 		return false
@@ -57,10 +52,9 @@ func _activate_penalty():
 			card_instance = penalty.instance()
 		emit_signal("spawn_card", card_instance, stack_card(card_instance))
 
-func active_penalty():
-	if card_settings.to_end <= 0 and not burned:
-		_activate_penalty()
-		burn()
+func count_reached_end():
+	_activate_penalty()
+	return .count_reached_end()
 
 func _consume_card(required_card:Card):
 	var result = ._consume_card(required_card)

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Card/Spawners/SpawnerCardSettingsResource.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Originals/Images/CardFront_Person.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Originals/Images/CardFronts/CardFront_Person.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/Resources/SpawnInitiative_1.tres" type="Resource" id=3]
 
 [resource]

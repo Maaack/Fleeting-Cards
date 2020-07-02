@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Card/Spawners/SpawnerCardSettingsResource.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Originals/Images/CardFront_Square.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Originals/Images/CardFronts/CardFront_Square.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Card/Spawners/Causes/Unique/GreaterCause/SpawnFirstGoal.tres" type="Resource" id=3]
 [ext_resource path="res://Scenes/Card/Spawners/Causes/Unique/GreaterCause/SpawnPivotalMoment.tres" type="Resource" id=4]
 [ext_resource path="res://Scenes/Card/Spawners/Causes/Unique/GreaterCause/SpawnFirstObstacle.tres" type="Resource" id=5]

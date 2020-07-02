@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Card/Themes/CardCounterTheme.tres" type="Theme" id=1]
-[ext_resource path="res://Assets/Originals/Images/CardIcons_Circle.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Originals/Images/CardIcons/CardIcon_Circle.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Card/CardPanel/CardRequirement/CardRequirement.gd" type="Script" id=3]
 
 [node name="CardRequirement" type="HBoxContainer"]
