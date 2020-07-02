@@ -7,7 +7,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "SlideDown"
-length = 0.25
+length = 1.25
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -16,10 +16,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.25, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -104 ), Vector2( 0, -16 ) ]
+"values": [ Vector2( 0, -104 ), Vector2( 0, -16 ), Vector2( 0, -16 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -82,6 +82,7 @@ __meta__ = {
 }
 
 [node name="FromStart" type="Label" parent="."]
+visible = false
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 114.0
@@ -96,6 +97,7 @@ __meta__ = {
 }
 
 [node name="ToEnd" type="Label" parent="."]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -114.0
@@ -111,7 +113,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Requirements" type="CenterContainer" parent="."]
+[node name="Consumes" type="CenterContainer" parent="."]
 anchor_right = 1.0
 margin_top = -104.0
 margin_bottom = 16.0
@@ -120,7 +122,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RequirementCardPanel" parent="Requirements" instance=ExtResource( 4 )]
+[node name="ConsumesCardPanel" parent="Consumes" instance=ExtResource( 4 )]
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -131,6 +133,6 @@ margin_top = 0.0
 margin_right = 310.0
 margin_bottom = 120.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Requirements"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Consumes"]
 anims/SlideDown = SubResource( 1 )
 anims/SlideUp = SubResource( 2 )

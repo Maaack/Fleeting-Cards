@@ -4,7 +4,8 @@
 [ext_resource path="res://Assets/Originals/Models/glTF Separate/Card.gltf" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Card/Text/CardTextMaterial.tres" type="Material" id=3]
 [ext_resource path="res://Scenes/Card/CardOutlineBoxMesh.tres" type="CubeMesh" id=4]
-[ext_resource path="res://Scenes/Card/Text/CardFrontContentsNew.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Card/Text/CardFrontContents.tscn" type="PackedScene" id=5]
+
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1.76, 0.025, 2.56 )

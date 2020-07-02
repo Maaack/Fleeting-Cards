@@ -4,8 +4,6 @@ extends ConsumerCard
 
 class_name FalloutCard
 
-signal spawn_card
-
 var rewards : Array = []
 var penalties : Array = []
 
@@ -41,10 +39,9 @@ func _activate_reward():
 	for reward in rewards:
 		var card_instance
 		if reward is Reward:
-			card_instance = reward.card_scene.instance()
+			spawn_card(reward.card_scene)
 		elif reward is PackedScene:
-			card_instance = reward.instance()
-		emit_signal("spawn_card", card_instance, stack_card(card_instance))
+			spawn_card(reward)
 
 func activate_reward():
 	if check_requirements():
@@ -65,6 +62,8 @@ func active_penalty():
 		_activate_penalty()
 		burn()
 
-func _consume_card(required_card:AbstractCard):
-	._consume_card(required_card)
+func _consume_card(required_card:Card):
+	var result = ._consume_card(required_card)
+	if result is GDScriptFunctionState:
+		yield(result, "completed")
 	activate_reward()

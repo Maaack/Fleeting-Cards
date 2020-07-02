@@ -4,8 +4,6 @@ extends StackableCard
 
 class_name AllianceCard
 
-signal spawn_card
-
 const MEMBER = 'MEMBER'
 const ALLIANCE = 'ALLIANCE'
 
@@ -61,8 +59,7 @@ func _spawn_from_array(timer:int, spawn_timers:Array):
 		if spawn_timer is SpawnTimer:
 			if timer >= spawn_timer.card_spawn_delay:
 				timer -= spawn_timer.card_spawn_delay
-				var card_instance = spawn_timer.card_scene.instance()
-				emit_signal("spawn_card", card_instance, stack_card(card_instance))
+				spawn_card(spawn_timer.card_scene)
 	return timer
 
 func _can_spawn_strength():

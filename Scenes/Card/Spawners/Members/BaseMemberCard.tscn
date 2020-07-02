@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Card/Spawners/Members/MemberCard.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Card/BaseCard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Card/Spawners/Members/DefaultMember.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Card/OutlineMaterial.tres" type="Material" id=4]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
@@ -12,6 +13,21 @@ resource_local_to_scene = true
 flags_transparent = true
 albedo_texture = SubResource( 1 )
 
+[sub_resource type="CubeMesh" id=3]
+resource_local_to_scene = true
+material = ExtResource( 4 )
+size = Vector3( 1.82, 0.085, 2.62 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_unshaded = true
+params_cull_mode = 1
+albedo_color = Color( 1, 0.960784, 0.34902, 0.627451 )
+
+[sub_resource type="CubeMesh" id=5]
+resource_local_to_scene = true
+material = SubResource( 4 )
+size = Vector3( 1.82, 0.085, 2.62 )
+
 [node name="MemberCard" groups=[
 "MEMBER",
 ] instance=ExtResource( 2 )]
@@ -20,3 +36,9 @@ init_card_settings = ExtResource( 3 )
 
 [node name="FrontTextMesh" parent="." index="6"]
 material/0 = SubResource( 2 )
+
+[node name="OutlineMesh" parent="." index="7"]
+mesh = SubResource( 3 )
+
+[node name="HighlightInteractionMesh" parent="." index="8"]
+mesh = SubResource( 5 )

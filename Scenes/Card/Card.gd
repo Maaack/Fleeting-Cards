@@ -9,6 +9,8 @@ signal focus
 signal unfocus
 signal drag
 signal drop
+signal spawn_card
+signal move_complete
 
 enum CardFaces{CARD_BACK, CARD_FRONT, CARD_RIM}
 
@@ -33,6 +35,11 @@ var dragging: bool = false
 var flipped: bool = false
 var initial_rotation:Vector3
 
+func _to_string():
+	if card_settings:
+		return card_settings.title
+	else:
+		return "Card %d" % [get_instance_id()]
 
 func _ready():
 	_update_card()
@@ -51,6 +58,8 @@ func _apply_init_settings():
 		_update_card()
 
 func _update_card():
+	if card_settings == null:
+		return
 	_update_card_title()
 	_update_card_description()
 	_update_card_front_texture()
@@ -164,11 +173,12 @@ func move(new_translation:Vector3):
 	if is_instance_valid(tween_node):
 		if tween_node.is_active():
 			tween_node.seek(_get_tween_time())
-		if translation.distance_to(new_translation) > 0.5:
+		if translation.distance_to(new_translation) > 0.1:
 			tween_node.interpolate_property(self, "translation", translation, new_translation, _get_tween_time())
 			tween_node.start()
-			return
+			yield(tween_node, "tween_all_completed")
 	translation = new_translation
+	emit_signal("move_complete", self)
 
 func _get_tween_time():
 	return 0.1
@@ -187,6 +197,8 @@ func get_flip_time():
 	return 0.25
 
 func advance_turn():
+	if card_settings == null:
+		return
 	card_settings.from_start += 1
 	card_settings.to_end -= 1
 	_update_card_from_start()
@@ -220,3 +232,9 @@ func is_in_groups(group_names:Array):
 		if not is_in_group(group_name):
 			return false
 	return true
+
+func spawn_card(card_scene:PackedScene):
+	var card_instance = card_scene.instance()
+	emit_signal("spawn_card", card_instance, get_over_card_translation())
+	return card_instance
+

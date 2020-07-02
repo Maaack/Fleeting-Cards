@@ -69,6 +69,13 @@ func _hide_requirements():
 func show_requirements():
 	_show_requirements()
 
+func bounce_open_requirements():
+	consumer_animation_node.playback_speed = 3.0
+	consumer_animation_node.play(SLIDE_DOWN_ANIMATION)
+	yield(consumer_animation_node, "animation_finished")
+	consumer_animation_node.playback_speed = 1.0
+	consumer_animation_node.play_backwards(SLIDE_DOWN_ANIMATION)
+
 func hide_requirements():
 	if not dragging and not focused:
 		_hide_requirements()
@@ -79,6 +86,11 @@ func stack_card(to_stack:AbstractCard):
 		return get_over_card_translation()
 	return .stack_card(to_stack)
 
-func _consume_card(required_card:AbstractCard):
+func _consume_card(required_card:Card):
+	bounce_open_requirements()
+	var result = required_card.move(get_over_card_translation())
+	if result is GDScriptFunctionState:
+		yield(result, "move_complete")
+	bounce_open_requirements()
 	consumes.quantity -= 1
 	required_card.burn()

@@ -60,12 +60,16 @@ func get_over_card_translation(click_position:Vector3=Vector3()):
 func burn():
 	var old_card_above = card_above
 	var old_card_below = card_below
-	.burn()
 	if is_instance_valid(tween_node) and tween_node.is_active():
-		tween_node.seek(_get_tween_time())
+		yield(tween_node, "tween_all_completed")
+	.burn()
 	unstack_card()
 	if is_instance_valid(old_card_above):
 		old_card_above.unstack_card()
 		old_card_above.move(translation)
 		if is_instance_valid(old_card_below):
 			old_card_below.stack_card(old_card_above)
+
+func spawn_card(card_scene:PackedScene):
+	var card_instance = .spawn_card(card_scene)
+	stack_card(card_instance)
